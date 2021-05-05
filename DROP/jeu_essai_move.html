@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>gamelib demo</title>
+	<style>
+	body{
+		text-align: center;
+	}
+	canvas{
+		border: 1px solid black;
+	}
+	</style>
+	<script src="script/gamelib.js"></script>
+	<script>
+	let e,d;
+
+	function init(){
+		definirFonctionClavier(touche);
+
+		setDureeIntervalle(1);
+		/*
+		// inclure ici les images et mettre en place les éléments
+		inclure('el1','img1');
+
+		// placer
+		setPosition('el1',100,100);
+		setAngle('el1',0);
+
+		// dessiner
+		dessiner('el1');
+
+		// touche du clavier
+		definirFonctionClavier(touche);*/
+
+		e = new Element('img1');
+		e.setXY(100,200);
+		e.dessiner();
+	}
+
+	function touche(a){
+		if(a=='ArrowUp'){
+			e.addY(-10);
+		}
+		if(a=='ArrowDown'){
+			e.addY(10);
+		}
+		if(a=='ArrowLeft'){
+			e.addX(-10);
+		}
+		if(a=='ArrowRight'){
+			e.addX(10);
+		}
+
+		effacerTout();
+		e.dessiner();
+
+	}
+
+
+	function step(){
+		e.addX(1);
+		e.addAngle(5);
+		effacerTout();
+		e.dessiner();
+
+
+	}
+
+
+
+	</script>
+</head>
+<body>
+	<canvas id="cnv_jeu_gl" width=600 height=400>
+	</canvas>
+	<br/>
+	<button id="btn_demarrer">démarrer</button>
+	<div style="display:none">
+		<img id="img1" src="image/rect_test.svg" />
+	</div>
+</body>
+</html>
