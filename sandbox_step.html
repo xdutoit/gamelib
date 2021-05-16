@@ -15,11 +15,16 @@
 	}
 
 	function step(){
+    // récupérer les valeurs de dx et dy depuis la page web
 		let dx = parseInt(document.getElementById('inp_dx').value);
 		let dy = parseInt(document.getElementById('inp_dy').value);
+
+    // faire bouger l'élément et mettre à jour le dessin
 		GL.addXY('elem1',dx,dy);
 		GL.effacerTout();
 		GL.dessiner('elem1');
+
+    // mettre à jour la position sur la page web
 		document.getElementById('sp_x').innerHTML = GL.getX('elem1');
 		document.getElementById('sp_y').innerHTML = GL.getY('elem1');
 	}

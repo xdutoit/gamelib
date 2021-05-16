@@ -22,19 +22,39 @@
   <div id="main_container">
     <section>
       <h1 id="installation">Installer et utiliser la librairie</h1>
-      <h2>Téléchargement de la librairie</h2>
+      <h2>Éléments nécessaires</h2>
       <p>
-        Pour utiliser la librairie, il faut télécharger le fichier <a href="script/gamelib.js" target="_blank">gamelib.js</a> et le placer dans un dossier <code>script</code>.<br/>
-        Il faut ensuite inclure le script dans la page:
+        Pour utiliser la librairie, il faut, au minimum:
+      </p>
+      <ul>
+        <li>le fichier de script <a href="script/gamelib.js" target="_blank">gamelib.js</a></li>
+        <li>une page web avec une balise <code>canvas</code> et un lien vers la librairie</li>
+        <li>un script pour le jeu</li>
+      </ul>
+      <p>
+        Une arborescence possible est la suivante (avec une image de rectangle):
+      </p>
+      <figure>
+        <img src="image_web/dossiers.svg" alt="arborescence pour la librairie">
+        <caption>Exemple d'arborescence</caption>
+      </figure>
+      <p>
+        Vous pouvez télécharger directement <a href="fichiers/fichiers_depart.zip">un dossier zippé avec tous les éléments nécessaires</a>. SI tuot est installé correctement, vous devriez voir le message "ça marche !" au chargement de la page.
+      </p>
+      <h2>Page web</h2>
+      <p>
+        La page web doit contenir au moins un lien vers la librairie et une balise canvas, et éventuellement une ou plusieurs images.
+      </p>
+      <p>
+        Le fichier de la librairie s'appelle <code>gamelib.js</code>. On peut donc l'inclure ainsi dans la page web:
       </p>
       <pre>
         <code class="language-html">
 &lt;script src="script/gamelib.js"&gt;&lt;/script&gt;
         </code>
       </pre>
-      <h2>Création du fichier HTML</h2>
       <p>
-        Il faut créer une page HTML qui contienne une balise <code>canvas</code> avec comme id <code>cnv_jeu_gl</code>:
+        La balise <code>canvas</code> représente la zone de dessin. Elle doit avoir comme id <code>cnv_jeu_gl</code>:
       </p>
       <pre>
         <code class="language-html">
@@ -50,16 +70,11 @@
       <pre>
         <code class="language-html">
 &lt;div style="display:none;"&gt;
-&lt;img id="img1" src="image/image1.svg" /&gt;
+  &lt;img id="img1" src="image/image1.svg" /&gt;
 &lt;/div&gt;
         </code>
       </pre>
       <p>Les images doivent être dans un format "web-compatible" (svg, png, jpg).</p>
-      <h2>Script externe</h2>
-      <p>Le contrôle du jeu peut ensuite être géré depuis un fichier de script externe.</p>
-      <p>
-        Vous pouvez télécharger directement <a href="fichiers/fichiers_depart.zip">un dossier zippé avec tous les éléments nécessaires</a>.
-      </p>
     </section>
 
     <section>
@@ -128,10 +143,11 @@ GL.dessiner('element1');
     <section>
       <h1 id="ex_1">Exercice 1: un exemple minimal</h1>
       <ol>
-        <li>téléchargez <a href="script/gamelib.js" target="_blank">la librairie</a> et une <a href="image/rectangle.svg" target="_blank">image de rectangle</a> (ou créez votre propre image)</li>
-        <li>placez la librairie dans un dossier <code>script</code> et l'image dans un dossier <code>image</code></li>
-        <li>créez une page web avec un canvas et une image</li>
-        <li>créez un fichier de script avec une fonction <code>init</code> qui place le rectangle aux coordonnées (100,200) avec un angle de 30° et dessinez-le</li>
+        <li><a href="#installation">installez la librairie</a> et téléchargez une <a href="image/rectangle.svg" target="_blank">image de rectangle</a> (ou créez votre propre image)</li>
+        <li>placez l'image dans un dossier <code>image</code></li>
+        <li>créez une page web avec un canvas et une image (cette page existe déjà dans le dossier zippé de départ)</li>
+        <li>créez un fichier de script (ce script existe déjà dans le dossier zippé de départ)</li>
+        <li>dans votre script, créez une fonction <code>init</code> qui place le rectangle aux coordonnées (100,200) avec un angle de 30° et dessinez-le</li>
       </ol>
       <p>
         Vous devriez obtenir le résultat suivant:
@@ -140,7 +156,11 @@ GL.dessiner('element1');
         <img src="image_web/exemple1_rendu.svg" alt="un canvas avec un rectangle à (100,200) et un angle de 30°">
         <caption>résultat de l'exemple 1: un rectangle à (100,200) avec un angle de 30°</caption>
       </figure>
+      <p>
+        Vous pouvez aller sur le <a href="exercice_init.html" target="_blank">corrigé de cet exercice</a>. Pour voir le script, affichez le code source de la page et cliquez sur le lien vers <code>exercice_init.js</code>.
+      </p>
     </section>
+
 
     <section>
       <h1 id="dessiner_canvas">Dessiner sur le <code>canvas</code></h1>
