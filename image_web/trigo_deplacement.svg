@@ -26,7 +26,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2"
-     inkscape:cx="22.293561"
+     inkscape:cx="122.75537"
      inkscape:cy="92.814168"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -297,7 +297,7 @@
          y="255.26193"
          x="52.349392"
          id="tspan836"
-         sodipodi:role="line">dy</tspan></text>
+         sodipodi:role="line">dx</tspan></text>
     <g
        id="g959"
        transform="translate(10.583334,-2.6458335)">
@@ -332,7 +332,7 @@
            y="280.13284"
            x="10.384893"
            id="tspan832"
-           sodipodi:role="line">dx</tspan></text>
+           sodipodi:role="line">dy</tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:4.23333359px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#c0392b;fill-opacity:1;stroke:none;stroke-width:0.26458335"
@@ -351,5 +351,27 @@
          cy="284.29053"
          r="0.20257163" />
     </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333359px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#c0392b;fill-opacity:1;stroke:none;stroke-width:0.26458335"
+       x="71.4375"
+       y="248.05208"
+       id="text866"><tspan
+         sodipodi:role="line"
+         id="tspan864"
+         x="71.4375"
+         y="248.05208"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333359px;font-family:Arial;-inkscape-font-specification:'Arial Bold';text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke-width:0.26458335">x</tspan></text>
+    <text
+       id="text871"
+       y="290.38535"
+       x="2.6458294"
+       style="font-style:normal;font-weight:normal;font-size:4.23333359px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#c0392b;fill-opacity:1;stroke:none;stroke-width:0.26458335"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333359px;font-family:Arial;-inkscape-font-specification:'Arial Bold';text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke-width:0.26458335"
+         y="290.38535"
+         x="2.6458294"
+         id="tspan869"
+         sodipodi:role="line">y</tspan></text>
   </g>
 </svg>
