@@ -65,7 +65,7 @@
         (pour plus d'information sur la balise canvas, voir <a href="#dessiner_canvas">dessiner sur le canvas</a>)
       </p>
       <p>
-        Il faut ensuite inclure chacune des images, avec à chaque fois un identifiant. On peut le faire dans une div insivisble (sinon les images apparaissent sur la page):
+        Il faut ensuite inclure chacune des images, avec à chaque fois un identifiant. On peut le faire dans une div invisible (sinon les images apparaissent sur la page):
       </p>
       <pre>
         <code class="language-html">
@@ -198,7 +198,7 @@ GL.dessiner('element1');
       <ol>
         <li>positionner l'élément (<code>addX</code>, <code>setAngle</code>, <code>setXY</code>, etc. )</li>
         <li>effacer tout le canvas (fonction <code>effacerTout()</code> )</li>
-        <li>redéssiner l'élément (fonction <code>dessiner()</code> ou <code>dessinerTout()</code> )</li>
+        <li>redessiner l'élément (fonction <code>dessiner()</code> ou <code>dessinerTout()</code> )</li>
       </ol>
       <p>
         Allez sur <a href="sandbox_rect.html" target="sb_rect">cet exemple</a> et, directement sur la console, appelez la fonction <code>setX</code> et observez le résultat. Rien ne "bouge" tant que vous n'avez pas redessiné le canvas. N'oubliez pas de commencer par effacer le canvas avant de redessiner l'élément.
@@ -207,7 +207,7 @@ GL.dessiner('element1');
     <section>
       <h1 id="touches">Réagir aux touches du clavier</h1>
       <p>
-        Pour qu'un jeu soit interactif, il faut réagir lorsqu'on appuye sur certaines touches du clavier (par exemple, dans la plupart des jeux, les touches wasd servent à diriger le personnage).
+        Pour qu'un jeu soit interactif, il faut réagir lorsqu'on appuie sur certaines touches du clavier (par exemple, dans la plupart des jeux, les touches wasd servent à diriger le personnage).
       </p>
       <p>
         Pour réagir à un touche, il faut effectuer deux actions:
@@ -230,7 +230,7 @@ GL.dessiner('element1');
         La première fonction permet d'appeler votre fonction lorsqu'une touche est enfoncée, la deuxième lorsqu'une touche est relâchée.
       </p>
       <p>
-        Par exemple, pour faire en sorte qu'une fonction nommée <code>maFonctionTouche</code> soit appelée lorsqu'on appuye sur une touche, il faut exécuter l'intruction suivante lors de l'initialisation:
+        Par exemple, pour faire en sorte qu'une fonction nommée <code>maFonctionTouche</code> soit appelée lorsqu'on appuie sur une touche, il faut exécuter l'instruction suivante lors de l'initialisation:
       </p>
       <pre>
         <code class="language-js">
@@ -238,7 +238,7 @@ GL.definirFonctionToucheEnfoncee(maFonctionTouche);
         </code>
       </pre>
       <p>
-        Ensuite, si on veut réagir lorsqu'on appuye sur la touche "flèche haut", il faut écrire le code suivant:
+        Ensuite, si on veut réagir lorsqu'on appuie sur la touche "flèche haut", il faut écrire le code suivant:
       </p>
       <pre>
         <code class="language-js">
@@ -297,7 +297,7 @@ function maFonctionTouche(nom_touche){
     <section>
       <h1 id="trigo">Déplacer un élément relativement à sa position</h1>
       <p>
-        en contruction...
+        en construction...
       </p>
       <p>
         Vous pouvez aller sur le <a href="exercice_trigo.html" target="_blank">corrigé de cet exercice</a>. Pour voir le script, affichez le code source de la page et cliquez sur le lien vers <code>exercice_trigo.js</code>.
