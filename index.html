@@ -295,10 +295,46 @@ function maFonctionTouche(nom_touche){
     </section>
 
     <section>
-      <h1 id="trigo">Déplacer un élément relativement à sa position</h1>
+      <h1 id="trigo">Exercice 2: déplacement relatif à l'orientation</h1>
       <p>
-        en construction...
+        Pour déplacer un objet suivant les axes, ont peut simplement ajouter (ou soustraire) un certain nombre de pixels à ses coordonnées en X et en Y (à l'aide de <code>addX</code> et <code>addY</code>).<br>
+        Par exemple, pour bouger l'élément 'elem1' de 20px vers la droite, on peut faire:
       </p>
+      <pre>
+        <code class="language-js">
+GL.addX('elem1',20);
+        </code>
+      </pre>
+      <p>
+        Parfois, il est nécessaire de bouger un objet relativement à son orientation. Par exemple, la touche flèche haut le fera avancer dans la direction vers laquelle il pointe.
+      </p>
+      <p>
+        Pour savoir à quel déplacement cela correspond sur les différents axes, il faut faire de la trigonométrie:
+      </p>
+      <figure>
+        <img src="image_web/trigo_deplacement.svg" alt="calcul trigonométrique pour trouver le déplacement suivants les axes">
+        <caption>relation entre déplacement "relatif" et déplacement selon les axes</caption>
+      </figure>
+      <p>
+        En Javascript, les fonctions <code>Math.cos(n)</code> et <code>Math.sin(n)</code> permettent de calculer le (co)sinus d'un angle <code>n</code>. <strong>Ces fonctions attendent un argument en radians !</strong> Pour calculer le cosinus de 20 degrés (et le stocker dans la variable <code>c</code> ), par exemple, il faut faire:
+      </p>
+      <pre>
+        <code class="language-js">
+let c = Math.cos(20 * Math.PI/180);
+        </code>
+      </pre>
+      <p>
+        (<code>Math.PI</code> représente le nombre &#960; )
+      </p>
+      <p>
+        Créez un script qui permette de déplacer un rectangle suivant les commandes suivantes:
+      </p>
+      <ul>
+        <li>flèche droite: l'angle augmente de 10 degrés</li>
+        <li>flèche gauche: l'angle diminue de 10 degrés</li>
+        <li>flèche haut: le rectangle avance de 10 pixels (dans la direction vers laquelle il pointe)</li>
+        <li>flèche bas: le rectangle recule de 10 pixels (dans la direction vers laquelle il pointe)</li>
+      </ul>
       <p>
         Vous pouvez aller sur le <a href="exercice_trigo.html" target="_blank">corrigé de cet exercice</a>. Pour voir le script, affichez le code source de la page et cliquez sur le lien vers <code>exercice_trigo.js</code>.
       </p>
