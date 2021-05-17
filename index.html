@@ -79,6 +79,17 @@
 
     <section>
       <h1 id="mise_en_place">La mise en place des éléments</h1>
+      <h2>Images et éléments</h2>
+      <p>
+        Pour inclure un élément, il faut faire deux opérations:
+      </p>
+      <ul>
+        <li>mettre l'image dans la page web (balise <code>img</code>)</li>
+        <li>inclure l'élément dans le script (cf. <a href="#inclure">ci-dessous</a>)</li>
+      </ul>
+      <p>
+        Si plusieurs éléments ont la même image, on peut insérer une seule fois l'image dans la page web, mais il faudra inclure plusieurs éléments dans le script.
+      </p>
       <h2>La fonction init()</h2>
       <p>
         Le script doit comprendre une fonction nommée <code>init()</code>. Cette fonction sera automatiquement appelée par la librairie au chargement de la page. Cette fonction doit contenir toute la mise en place pour le jeu.
@@ -91,7 +102,7 @@ function init(){
 }
         </code>
       </pre>
-      <h2>Importation des éléments: la fonction inclure()</h2>
+      <h2 id="inclure">Importation des éléments: la fonction inclure()</h2>
       <p>
         Chaque élément du jeu doit être "inclus" avant de pouvoir être utilisé. On le fait à l'aide de la fonction <code>inclure()</code>. Cette fonction prend deux arguments: le nom de l'élément (on doit nommer chaque élément afin de pouvoir l'identifier par la suite) et l'id de l'image associée.<br/>
         Pour créer un élément <code>element1</code> qui a comme image <code>image1</code>, on fait:
