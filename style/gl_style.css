@@ -43,6 +43,9 @@ nav a:hover{
 nav a:visited{
 	color: #fff;
 }
+nav a.a_ref{
+	background-color: #b95e29;
+}
 #nav_auto{
 	margin-bottom: 50px;
 }
@@ -95,4 +98,27 @@ figure>img{
 }
 .two_cols>div{
 	width: 45%;
+}
+
+/* référence */
+.body_ref{
+	width: 800px;
+	margin: 20px auto 100px;
+}
+.tab_ref{
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 50px;
+}
+.tab_ref td,.tab_ref th{
+	padding: 5px;
+}
+.tab_ref th{
+	border-top: 3px solid gray;
+}
+.tab_ref td:first-child{
+	font-family: monospace;
+}
+.tab_ref tr:nth-child(even){
+	background-color: #ddd;
 }
