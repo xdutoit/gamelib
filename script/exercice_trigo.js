@@ -37,7 +37,7 @@ function toucheAppuyee(id_touche){
     GL.addY('elem1',-10*Math.sin(angle_rad));
   }
 
-  // dans tous les cas, on efface le canveas et on redessine l'lément à sa nouvelle position
+  // dans tous les cas, on efface le canveas et on redessine l'élément à sa nouvelle position
   GL.effacerTout();
   GL.dessiner('elem1');
 }
