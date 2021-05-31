@@ -71,7 +71,7 @@ function toucheEnf(t){
 }
 
 function toucheRel(t){
-	if(t=='ArrowLeft' || (t=='ArrowRight'){
+	if(t=='ArrowLeft' || t=='ArrowRight'){
 		mvt_courant = 0;
 	}
 

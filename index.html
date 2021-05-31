@@ -26,7 +26,7 @@
       <h1 id="installation">Installer et utiliser la librairie</h1>
       <h2>Éléments nécessaires</h2>
       <p>
-        Pour utiliser la librairie, il faut, au minimum:
+        Pour utiliser la librairie, il faut, au minimum :
       </p>
       <ul>
         <li>le fichier de script <a href="script/gamelib.js" target="_blank">gamelib.js</a></li>
@@ -34,7 +34,7 @@
         <li>un script pour le jeu</li>
       </ul>
       <p>
-        Une arborescence possible est la suivante (avec une image de rectangle):
+        Une arborescence possible est la suivante (avec une image de rectangle) :
       </p>
       <figure>
         <img src="image_web/dossiers.svg" alt="arborescence pour la librairie">
@@ -48,7 +48,7 @@
         La page web doit contenir au moins un lien vers la librairie et une balise canvas, et éventuellement une ou plusieurs images.
       </p>
       <p>
-        Le fichier de la librairie s'appelle <code>gamelib.js</code>. On peut donc l'inclure ainsi dans la page web:
+        Le fichier de la librairie s'appelle <code>gamelib.js</code>. On peut donc l'inclure ainsi dans la page web :
       </p>
       <pre>
         <code class="language-html">
@@ -56,7 +56,7 @@
         </code>
       </pre>
       <p>
-        La balise <code>canvas</code> représente la zone de dessin. Elle doit avoir comme id <code>cnv_jeu_gl</code>:
+        La balise <code>canvas</code> représente la zone de dessin. Elle doit avoir comme id <code>cnv_jeu_gl</code> :
       </p>
       <pre>
         <code class="language-html">
@@ -67,11 +67,11 @@
         (pour plus d'information sur la balise canvas, voir <a href="#dessiner_canvas">dessiner sur le canvas</a>)
       </p>
       <p>
-        Il faut ensuite inclure chacune des images, avec à chaque fois un identifiant. On peut le faire dans une div invisible (sinon les images apparaissent sur la page):
+        Il faut ensuite inclure chacune des images, avec à chaque fois un identifiant. On peut le faire dans une div invisible (sinon les images apparaissent sur la page) :
       </p>
       <pre>
         <code class="language-html">
-&lt;div style="display:none;"&gt;
+&lt;div style="display :none;"&gt;
   &lt;img id="img1" src="image/image1.svg" /&gt;
 &lt;/div&gt;
         </code>
@@ -83,7 +83,7 @@
       <h1 id="mise_en_place">La mise en place des éléments</h1>
       <h2>Images et éléments</h2>
       <p>
-        Pour inclure un élément, il faut faire deux opérations:
+        Pour inclure un élément, il faut faire deux opérations :
       </p>
       <ul>
         <li>mettre l'image dans la page web (balise <code>img</code>)</li>
@@ -104,10 +104,10 @@ function init(){
 }
         </code>
       </pre>
-      <h2 id="inclure">Importation des éléments: la fonction inclure()</h2>
+      <h2 id="inclure">Importation des éléments : la fonction inclure()</h2>
       <p>
-        Chaque élément du jeu doit être "inclus" avant de pouvoir être utilisé. On le fait à l'aide de la fonction <code>inclure()</code>. Cette fonction prend deux arguments: le nom de l'élément (on doit nommer chaque élément afin de pouvoir l'identifier par la suite) et l'id de l'image associée.<br/>
-        Pour créer un élément <code>element1</code> qui a comme image <code>image1</code>, on fait:
+        Chaque élément du jeu doit être "inclus" avant de pouvoir être utilisé. On le fait à l'aide de la fonction <code>inclure()</code>. Cette fonction prend deux arguments : le nom de l'élément (on doit nommer chaque élément afin de pouvoir l'identifier par la suite) et l'id de l'image associée.<br/>
+        Pour créer un élément <code>element1</code> qui a comme image <code>image1</code>, on fait :
       </p>
       <pre>
         <code class="language-js">
@@ -116,7 +116,7 @@ GL.inclure('element1','image1');
       </pre>
       <h2>Placement des éléments</h2>
       <p>
-        Pour placer un élément nommé <code>element1</code> à la position <code>(100,200)</code> et avec un angle de <code>30°</code>, on fait:
+        Pour placer un élément nommé <code>element1</code> à la position <code>(100,200)</code> et avec un angle de <code>30°</code>, on fait :
       </p>
       <pre>
         <code class="language-js">
@@ -124,27 +124,27 @@ GL.setXY('element1',100,200);
 GL.setAngle('element1',30);
         </code>
       </pre>
-      <h2>Coordonnées: différence entre mathématiques et informatique</h2>
+      <h2>Coordonnées : différence entre mathématiques et informatique</h2>
       <p>
-        Il faut faire attention aux coordonnées: en informatique, l'origine est en haut à gauche (ceci vient du fait qu'une page web a un début en haut, mais que la hauteur de la page dépend ensuite du contenu).
+        Il faut faire attention aux coordonnées : en informatique, l'origine est en haut à gauche (ceci vient du fait qu'une page web a un début en haut, mais que la hauteur de la page dépend ensuite du contenu).
       </p>
       <div class="two_cols">
         <div>
           <figure>
-            <img src="image_web/coord_maths.svg" alt="coordonnées en mathématiques: l'origine est en bas à gauche et les angles se mesurent dans le sens antihoraire">
+            <img src="image_web/coord_maths.svg" alt="coordonnées en mathématiques : l'origine est en bas à gauche et les angles se mesurent dans le sens antihoraire">
             <caption>coordonnées usuelles en mathématiques</caption>
           </figure>
         </div>
         <div>
           <figure>
-            <img src="image_web/coord_info.svg" alt="coordonnées en informatique: l'origine est en haut à gauche et les angles se mesurent dans le sens horaire">
+            <img src="image_web/coord_info.svg" alt="coordonnées en informatique : l'origine est en haut à gauche et les angles se mesurent dans le sens horaire">
             <caption>coordonnées usuelles en informatique</caption>
           </figure>
         </div>
       </div>
       <h2>Rendu</h2>
       <p>
-        Pour dessiner un élément, il faut encore appeler la fonction <code>dessiner()</code>:
+        Pour dessiner un élément, il faut encore appeler la fonction <code>dessiner()</code> :
       </p>
       <pre>
         <code class="language-js">
@@ -154,7 +154,7 @@ GL.dessiner('element1');
     </section>
 
     <section>
-      <h1 id="ex_1">Exercice 1: un exemple minimal</h1>
+      <h1 id="ex_1">Exercice 1 : un exemple minimal</h1>
       <ol>
         <li><a href="#installation">installez la librairie</a> et téléchargez une <a href="image/rectangle.svg" target="_blank">image de rectangle</a> (ou créez votre propre image)</li>
         <li>placez l'image dans un dossier <code>image</code></li>
@@ -163,11 +163,11 @@ GL.dessiner('element1');
         <li>dans votre script, créez une fonction <code>init</code> qui place le rectangle aux coordonnées (100,200) avec un angle de 30° et dessinez-le</li>
       </ol>
       <p>
-        Vous devriez obtenir le résultat suivant:
+        Vous devriez obtenir le résultat suivant :
       </p>
       <figure>
         <img src="image_web/exemple1_rendu.svg" alt="un canvas avec un rectangle à (100,200) et un angle de 30°">
-        <caption>résultat de l'exemple 1: un rectangle à (100,200) avec un angle de 30°</caption>
+        <caption>résultat de l'exemple 1 : un rectangle à (100,200) avec un angle de 30°</caption>
       </figure>
       <p>
         Vous pouvez aller sur le <a href="exercice_init.html" target="_blank">corrigé de cet exercice</a>. Pour voir le script, affichez le code source de la page et cliquez sur le lien vers <code>exercice_init.js</code>.
@@ -178,7 +178,7 @@ GL.dessiner('element1');
     <section>
       <h1 id="dessiner_canvas">Dessiner sur le <code>canvas</code></h1>
       <p>
-        En HTML5, la balise <code>canvas</code> crée une zone de dessin. Par exemple, pour créer un canvas de 600px de large et 400px de haut, on utilise le code suivant:
+        En HTML5, la balise <code>canvas</code> crée une zone de dessin. Par exemple, pour créer un canvas de 600 pixels de large et 400 pixels de haut, on utilise le code suivant :
       </p>
       <pre>
         <code class="language-html">
@@ -195,7 +195,7 @@ GL.dessiner('element1');
         De plus, <strong>dessiner un élément n'efface pas l'élément précédent</strong>. Il faut donc à chaque fois effacer tout le canvas avant de redessiner un élément à sa nouvelle position.
       </p>
       <p>
-        Pour bouger un élément, il faut donc effectuer les opérations suivantes:
+        Pour bouger un élément, il faut donc effectuer les opérations suivantes :
       </p>
       <ol>
         <li>positionner l'élément (<code>addX</code>, <code>setAngle</code>, <code>setXY</code>, etc. )</li>
@@ -212,7 +212,7 @@ GL.dessiner('element1');
         Pour qu'un jeu soit interactif, il faut réagir lorsqu'on appuie sur certaines touches du clavier (par exemple, dans la plupart des jeux, les touches wasd servent à diriger le personnage).
       </p>
       <p>
-        Pour réagir à un touche, il faut effectuer deux actions:
+        Pour réagir à un touche, il faut effectuer deux actions :
       </p>
       <ul>
         <li>créer une fonction qui sera appelée lorsqu'une touche est appuyée (ou relâchée)</li>
@@ -222,7 +222,7 @@ GL.dessiner('element1');
         Il est important de noter qu'on définit <strong>une seule fonction</strong> qui sera appelée lorsque <strong>n'importe quelle touche</strong> du clavier est appuyée (ou relâchée). Le nom de la touche sera passé en paramètre à cette fonction.
       </p>
       <p>
-        Pour "attacher" une fonction, vous devez appeler une des deux fonctions suivantes:
+        Pour "attacher" une fonction, vous devez appeler une des deux fonctions suivantes :
       </p>
       <ul>
         <li><code>definirFonctionToucheEnfoncee</code></li>
@@ -232,7 +232,7 @@ GL.dessiner('element1');
         La première fonction permet d'appeler votre fonction lorsqu'une touche est enfoncée, la deuxième lorsqu'une touche est relâchée.
       </p>
       <p>
-        Par exemple, pour faire en sorte qu'une fonction nommée <code>maFonctionTouche</code> soit appelée lorsqu'on appuie sur une touche, il faut exécuter l'instruction suivante lors de l'initialisation:
+        Par exemple, pour faire en sorte qu'une fonction nommée <code>maFonctionTouche</code> soit appelée lorsqu'on appuie sur une touche, il faut exécuter l'instruction suivante lors de l'initialisation :
       </p>
       <pre>
         <code class="language-js">
@@ -240,33 +240,91 @@ GL.definirFonctionToucheEnfoncee(maFonctionTouche);
         </code>
       </pre>
       <p>
-        Ensuite, si on veut réagir lorsqu'on appuie sur la touche "flèche haut", il faut écrire le code suivant:
+        Ensuite, si on veut réagir lorsqu'on appuie sur la touche "flèche haut", il faut écrire le code suivant :
       </p>
       <pre>
         <code class="language-js">
-function maFonctionTouche(nom_touche){
-  if(nom_touche=='ArrowUp'){
+function maFonctionTouche(nomTouche){
+  if(nomTouche=='ArrowUp'){
     // instruction(s) à exécuter lorsque "flèche haut" est appuyée
   }
 }
         </code>
       </pre>
       <p>
-        Le paramètre passé à la fonction appelée en cas de touche enfoncée est le nom de la touche. Ces noms peuvent être:
+        Le paramètre passé à la fonction appelée en cas de touche enfoncée est le nom de la touche. Ces noms peuvent être :
       </p>
       <ul>
-        <li>les lettres: <code>a</code>, <code>b</code>, <code>c</code>, etc.</li>
-        <li>les chiffres: <code>1</code>, <code>2</code>, <code>3</code>, etc.</li>
-        <li>les flèches: <code>ArrowUp</code>, <code>ArrowDown</code>, <code>ArrowLeft</code>, <code>ArrowRight</code></li>
-        <li>les autres touches spéciales: <code>Tab</code>, <code>Control</code>, <code>Alt</code>, <code>AltGraph</code>, <code>Shift</code>, <code>PageUp</code>, <code>PageDown</code>, <code>Home</code>, <code>End</code></li>
+        <li>les lettres : <code>a</code>, <code>b</code>, <code>c</code>, etc.</li>
+        <li>les chiffres : <code>1</code>, <code>2</code>, <code>3</code>, etc.</li>
+        <li>les flèches : <code>ArrowUp</code>, <code>ArrowDown</code>, <code>ArrowLeft</code>, <code>ArrowRight</code></li>
+        <li>les autres touches spéciales : <code>Tab</code>, <code>Control</code>, <code>Alt</code>, <code>AltGraph</code>, <code>Shift</code>, <code>PageUp</code>, <code>PageDown</code>, <code>Home</code>, <code>End</code></li>
       </ul>
 
     </section>
 
     <section>
-      <h1 id="iterations">Faire avancer le jeu: les itérations</h1>
+      <h1 id="exo_touches">Exercice 2 : faire bouger le rectangle</h1>
       <p>
-        Dans un jeu dynamique, certains éléments sont autonomes. Il faut donc régulièrement les faire bouger et rafraîchir l'affichage. Il doit donc y avoir une fonction qui est appelée à chaque "itération" du jeu. Cette fonction a (au moins) les tâches suivantes:
+        Si ce n'est pas encore fait, téléchargez <a href="image/rectangle.svg" target="_blank">l'image de rectangle</a> et incluez-la dans votre jeu.
+      </p>
+      <p>
+        Placez cette image au milieu du canevas, c'est-à-dire aux coordonnées (300;200).
+      </p>
+      <p>
+        Créez une fonction <code>toucheAppuyee</code> qui reçoit un paramètre, appelé <code>nomTouche</code> :
+      </p>
+      <pre>
+        <code class="language-js">
+function toucheAppuyee(nomTouche){
+  // complétez ici le corps de la fonction
+}
+        </code>
+      </pre>
+      <p>
+        Faites en sorte que votre fonction <code>toucheAppuyee</code> soit appelée dès qu'on appuye sur une touche, en ajoutant ce code dans la fonction <code>init</code> :
+      </p>
+      <pre>
+        <code class="language-js">
+GL.definirFonctionToucheEnfoncee(maFonctionTouche);
+        </code>
+      </pre>
+      <p>
+        Complétez maintenant le corps de la fonction <code>toucheAppuyee</code> pour que les touches fléchées fassent bouger le rectangle. Par exemple, pour que la touche "flèche gauche" fasse bouger le rectangle de 10 pixels vers la gauche, écrivez :
+      </p>
+      <pre>
+        <code class="language-js">
+function toucheAppuyee(nomTouche){
+  if(nomTouche=='ArrowLeft'){
+    GL.addX('rectangle',-10);
+  }
+}
+        </code>
+      </pre>
+      <p>
+        Faites en sorte que les 4 touches fléchées fassent bouger le rectangle dans la direction correspondante.
+      </p>
+      <p>
+        N'oubliez pas d'effacer et de redessiner tout le canevas après chaque déplacement du rectangle. La fin de votre fonction <code>toucheAppuyee</code> doit donc être :
+      </p>
+      <pre>
+        <code class="language-js">
+function toucheAppuyee(nomTouche){
+
+  // plusieurs if pour les différentes flèches
+
+  GL.effacerTout();
+  GL.dessinerTout();
+}
+        </code>
+      </pre>
+
+    </section>
+
+    <section>
+      <h1 id="iterations">Faire avancer le jeu : les itérations</h1>
+      <p>
+        Dans un jeu dynamique, certains éléments sont autonomes. Il faut donc régulièrement les faire bouger et rafraîchir l'affichage. Il doit donc y avoir une fonction qui est appelée à chaque "itération" du jeu. Cette fonction a (au moins) les tâches suivantes :
       </p>
       <ul>
         <li>déplacer les objets autonomes</li>
@@ -274,14 +332,14 @@ function maFonctionTouche(nom_touche){
         <li>vérifier les conditions de fin de partie</li>
       </ul>
       <p>
-        Dans l'exemple du <a href="#pong">pong</a>:
+        Dans l'exemple du <a href="#pong">pong</a> :
       </p>
       <ul>
         <li>l'élément autonome (qui se déplace tout seul) est la balle</li>
         <li>les éléments contrôlés par les utilisateurs (qui réagissent aux touches du clavier) sont les barres</li>
       </ul>
       <p>
-        A chaque itération, il faut:
+        A chaque itération, il faut :
       </p>
       <ul>
         <li>déplacer la balle</li>
@@ -297,10 +355,10 @@ function maFonctionTouche(nom_touche){
     </section>
 
     <section>
-      <h1 id="trigo">Exercice 2: déplacement relatif à l'orientation</h1>
+      <h1 id="trigo">Exercice 3 : déplacement relatif à l'orientation</h1>
       <p>
         Pour déplacer un objet suivant les axes, ont peut simplement ajouter (ou soustraire) un certain nombre de pixels à ses coordonnées en X et en Y (à l'aide de <code>addX</code> et <code>addY</code>).<br>
-        Par exemple, pour bouger l'élément 'elem1' de 20px vers la droite, on peut faire:
+        Par exemple, pour bouger l'élément 'elem1' de 20 pixels vers la droite, on peut faire :
       </p>
       <pre>
         <code class="language-js">
@@ -311,14 +369,14 @@ GL.addX('elem1',20);
         Parfois, il est nécessaire de bouger un objet relativement à son orientation. Par exemple, la touche flèche haut le fera avancer dans la direction vers laquelle il pointe.
       </p>
       <p>
-        Pour savoir à quel déplacement cela correspond sur les différents axes, il faut faire de la trigonométrie:
+        Pour savoir à quel déplacement cela correspond sur les différents axes, il faut faire de la trigonométrie :
       </p>
       <figure>
-        <img src="image_web/trigo_deplacement.svg" alt="calcul trigonométrique pour trouver le déplacement suivants les axes: dx=dr*cos(a), dy=dr*sin(a)">
+        <img src="image_web/trigo_deplacement.svg" alt="calcul trigonométrique pour trouver le déplacement suivants les axes : dx=dr*cos(a), dy=dr*sin(a)">
         <caption>relation entre déplacement "relatif" et déplacement selon les axes</caption>
       </figure>
       <p>
-        En Javascript, les fonctions <code>Math.cos(n)</code> et <code>Math.sin(n)</code> permettent de calculer le (co)sinus d'un angle <code>n</code>. <strong>Ces fonctions attendent un argument en radians !</strong> Pour calculer le cosinus de 20 degrés (et le stocker dans la variable <code>c</code> ), par exemple, il faut faire:
+        En Javascript, les fonctions <code>Math.cos(n)</code> et <code>Math.sin(n)</code> permettent de calculer le (co)sinus d'un angle <code>n</code>. <strong>Ces fonctions attendent un argument en radians !</strong> Pour calculer le cosinus de 20 degrés (et le stocker dans la variable <code>c</code> ), par exemple, il faut faire :
       </p>
       <pre>
         <code class="language-js">
@@ -329,13 +387,13 @@ let c = Math.cos(20 * Math.PI/180);
         (<code>Math.PI</code> représente le nombre &#960; )
       </p>
       <p>
-        Créez un script qui permette de déplacer un rectangle suivant les commandes suivantes:
+        Créez un script qui permette de déplacer un rectangle suivant les commandes suivantes :
       </p>
       <ul>
-        <li>flèche droite: l'angle augmente de 10 degrés</li>
-        <li>flèche gauche: l'angle diminue de 10 degrés</li>
-        <li>flèche haut: le rectangle avance de 10 pixels (dans la direction vers laquelle il pointe)</li>
-        <li>flèche bas: le rectangle recule de 10 pixels (dans la direction vers laquelle il pointe)</li>
+        <li>flèche droite : l'angle augmente de 10 degrés</li>
+        <li>flèche gauche : l'angle diminue de 10 degrés</li>
+        <li>flèche haut : le rectangle avance de 10 pixels (dans la direction vers laquelle il pointe)</li>
+        <li>flèche bas : le rectangle recule de 10 pixels (dans la direction vers laquelle il pointe)</li>
       </ul>
       <p>
         Vous pouvez aller sur le <a href="exercice_trigo.html" target="_blank">corrigé de cet exercice</a>. Pour voir le script, affichez le code source de la page et cliquez sur le lien vers <code>exercice_trigo.js</code>.
@@ -350,7 +408,7 @@ let c = Math.cos(20 * Math.PI/180);
     </section>
 
     <section>
-      <h1 id="pong">Exemple 1: le pong</h1>
+      <h1 id="pong">Exemple 1 : le pong</h1>
       en construction... <br>
       (mais vous pouvez déjà voir le <a href="exemple_pong.html" target="pong">résultat</a> et observer le code source)
     </section>
