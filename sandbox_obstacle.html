@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>sandbox 3: obstacle</title>
+  <link rel="stylesheet" href="style/gl_style_light.css" />
+  <script src="script/gamelib.js"></script>
+  <script>
+
+    const OBSTACLE_CACHE = 0;
+    const OBSTACLE_VISIBLE = 1;
+
+    let obstacle_etat;
+
+    function init() {
+      GL.inclure('obstacle', 'brique');
+
+      // placement initial: à (611;390) (= hors de l'écran)
+      GL.setXY('obstacle', 611, 390);
+
+      // initialiser la variable d'état
+      obstacle_etat = OBSTACLE_CACHE;
+
+      document.getElementById('btn_step').addEventListener('click', step);
+      
+      GL.setDebugLevel(1);
+    }
+
+    function step() {
+      let hasard = '';
+      document.querySelector('#sp_lessThan001').innerHTML = '';
+      if (obstacle_etat == OBSTACLE_CACHE) {
+        // l'obstacle est actuellement caché
+        // le faire apparaître avec une probabilité de 1% (suivant input 'inp_threshold'):
+        hasard = Math.random();
+        if (hasard < parseFloat(document.querySelector('#inp_threshold').value)) {
+          obstacle_etat = OBSTACLE_VISIBLE;
+          document.querySelector('#sp_lessThan001').innerHTML = 'OBSTACLE DEVIENT VISIBLE';
+        }
+      }
+      else if (obstacle_etat == OBSTACLE_VISIBLE) {
+        // l'obstacle est actuellement visible
+        // le décaler vers la gauche
+        GL.addX('obstacle', -10);
+        // vérifier si l'obstacle arrive à gauche
+        if (GL.getX('obstacle') < -11) {
+          // si c'est le cas, le faire disparaître et repasser en mode 'obstacle caché'
+          GL.setX('obstacle', 611);
+          obstacle_etat = OBSTACLE_CACHE;
+        }
+      }
+      // rafraîchir l'affichage:
+      GL.effacerTout();
+      GL.dessinerTout();
+
+      document.querySelector('#sp_etat').innerHTML = (obstacle_etat==OBSTACLE_VISIBLE?'OBSTACLE_VISIBLE':'OBSTACLE_CACHE');
+      document.querySelector('#sp_random').innerHTML = hasard;
+    }
+  </script>
+</head>
+
+<body>
+  <canvas id="cnv_jeu_gl" width=600 height=400>
+  </canvas><br />
+  <button id="btn_demarrer">Démarrer</button>
+  <button id="btn_step">step</button>
+  <table style="margin: 0 auto; text-align: left;">
+    <tr>
+      <td>état actuel:</td>
+      <td><span id="sp_etat">OBSTACLE_CACHE</span></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>nombre aléatoire:</td>
+      <td><span id="sp_random"></span></td>
+      <td><span id="sp_lessThan001" style="font-weight: bold; color: red;"></span></td>
+    </tr>
+    <tr>
+      <td>seuil:</td>
+      <td><input type="text" value="0.01" id="inp_threshold"></td>
+      <td></td>
+    </tr>
+  </table>
+  <div style="display:none">
+    <img id="brique" src="image/brique.svg" />
+  </div>
+</body>
+
+</html>

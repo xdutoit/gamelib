@@ -406,12 +406,159 @@ let c = Math.cos(20 * Math.PI/180);
     <section>
       <h1 id="var_etat">Les variables d'état</h1>
       <p>
-        en construction...
+        Dans un jeu, il est souvent utile de coder l'état du jeu. Par exemple, est-ce que le jeu est : en train de jouer, n'a pas encore démarré ou a terminé ? Dans l'exemple du <a href="#pong">pong</a>, est-ce que la barre gauche est en train de monter, de descendre ou est immobile ? D'autres exemples d'états du jeu sont le niveau actuel, le score actuel, la vitesse et la direction actuelles d'un objet, etc.
+      </p>
+      <p>
+        Dans toutes ces situations, on peut créer une variable, nommée variable d'état, qui représente l'état du jeu. Elle peut ainsi prendre plusieurs valeurs suivant l'état actuel du jeu. On peut alors faire des tests sur cette variable et effectuer ou non une certaine instruction en fonction de la valeur de la variable.
+      </p>
+      <p>
+        Il est important que la variable d'état soit une variable globale. Il faut donc la créer en-dehors de toute instruction :
+      </p>
+      <pre>
+        <code class="language_js">
+let etat_jeu;
+        </code>
+      </pre>
+
+      <p>
+        Pour coder des états comme un score ou un niveau, il est naturel de prendre des numéros. Mais ceci peut aussi s'appliquer à d'autres états. Par exemple, pour savoir si un jeu n'a pas encore démarré, est en train de jouer ou est terminé, il est possible de créer une variable nommée par exemple <code>etat_jeu</code> et de choisir arbitrairement les valeurs suivantes :
+      </p>
+      <ul>
+        <li>0 : jeu pas encore démarré</li>
+        <li>1 : jeu en cours</li>
+        <li>2 : jeu terminé</li>
+      </ul>
+      <p>
+        On aura alors le code suivant dans le programme du jeu :
+      </p>
+      <pre>
+        <code class="language_js">
+if(etat_jeu==0){
+  // instructions à faire si le jeu n'a pas démarré
+  // (p.ex. mettre en place les éléments)
+}
+else if(etat_jeu==1){
+  // instructions à faire lorsque le jeu est en train de s'éxecuter
+  // (p.ex. faire bouger les éléments autonomes)
+}
+else if(etat_jeu==2){
+  // instructions à faire lorsque le jeu est terminé
+  // (p.ex. afficher le nom du vainqueur, le score, etc.)
+}
+        </code>
+      </pre>
+      <p>
+        Pour ne pas avoir à se souvenir de quelle valeur représente quel état, on peut créer des constantes avec les valeurs données et des noms faciles à mémoriser. Une constante est comme une variable, sauf qu'elle ne varie pas (!). Par convention, on nomme les constantes en majuscules.
+      </p>
+      <p>
+        Ainsi, il est possible de mettre au début du programme (en-dehors de toute fonction) :
+      </p>
+      <pre>
+        <code class="language_js">
+const DEBUT = 0;
+const EN_COURS = 1;
+const FINI = 2;
+        </code>
+      </pre>
+      <p> 
+        Le code de l'exemple précédent devient alors plus lisible :
+      </p>
+      <pre>
+        <code class="language_js">
+if(etat_jeu==DEBUT){
+  // instructions à faire si le jeu n'a pas démarré
+  // (p.ex. mettre en place les éléments)
+}
+else if(etat_jeu==EN_COURS){
+  // instructions à faire lorsque le jeu est en train de s'éxecuter
+  // (p.ex. faire bouger les éléments autonomes)
+}
+else if(etat_jeu==FINI){
+  // instructions à faire lorsque le jeu est terminé
+  // (p.ex. afficher le nom du vainqueur, le score, etc.)
+}
+        </code>
+      </pre>
+    </section>
+
+    <section>
+      <h1>Exemple : faire apparaître des éléments aléatoirement</h1>
+      <p>
+        Dans de nombreux jeux, il y a des éléments qui apparaissent depuis un bord de l'écran de manière aléatoire (par exemple des obstacles à éviter, des fruits à ramasser, etc.).
+      </p>
+      <p>
+        Si on veut limiter le nombre d'élément visible en même temps, on doit stocker l'état du jeu dans une variable. Prenons l'exemple d'un obstacle qui apparaît depuis la droite et bouge vers la gauche. On a alors plusieurs états :
+      </p>
+      <ul>
+        <li>l'obstacle n'est pas visible</li>
+        <li>il y a un obstacle ne train de traverser l'écran</li>
+      </ul>
+      <p>
+        Le comportement du jeu est alors le suivant (à chaque itération) :
+      </p>
+      <ul>
+        <li>
+          Si l'obstacle n'est pas visible :
+          <ul>
+            <li>choisir un nombre au hasard</li>
+            <li>si ce nombre est plus petit/grand qu'un certain seuil, faire apparaître l'obstacle</li>
+          </ul>
+        </li>
+        <li>
+          Si l'obstacle est visible :
+          <ul>
+            <li>faire avancer l'obstacle vers la gauche</li>
+            <li>si l'obstacle touche le mur gauche : faire disparaître l'obstacle</li>
+          </ul>
+        </li>
+      </ul>
+      <p>
+        Le code correspondant est donc :
+      </p>
+      <pre>
+        <code class="language_js">
+const OBSTACLE_CACHE = 0;
+const OBSTACLE_VISIBLE = 1;
+
+let obstacle_etat;
+
+function init(){
+  // d'autres instructions de mise en place...
+  obstacle_etat = OBSTACLE_CACHE;
+
+}
+function step(){
+  if(obstacle_etat == OBSTACLE_CACHE){
+    // l'obstacle est actuellement caché
+    // le faire apparaître avec une probabilité de 1% :
+    if(Math.random() &lt; 0.01){
+      obstacle_etat = OBSTACLE_VISIBLE;
+    }
+  }
+  else if(obstacle_etat == OBSTACLE_VISIBLE){
+    // l'obstacle est actuellement visible
+    // le décaler vers la gauche
+    GL.addX('obstacle',-10);
+    // vérifier si l'obstacle arrive à gauche
+    if(GL.getX('obstacle') &lt; -11){
+      // si c'est le cas, le faire disparaître et repasser en mode 'obstacle caché'
+      GL.setX('obstacle',611);
+      obstacle_etat = OBSTACLE_CACHE;
+    }
+  }
+  // rafraîchir l'affichage :
+  GL.effacerTout();
+  GL.dessinerTout();
+}
+        </code>
+      </pre>
+      <p>
+        Vous pouvez voir le résultat sur <a href="sandbox_obstacle.html" target="obstacle">cet exemple</a>.
       </p>
     </section>
 
     <section>
-      <h1 id="pong">Exemple 1 : le pong</h1>
+      <h1 id="pong">Exemple complet 1 : le pong</h1>
       
       en construction... <br>
       (mais vous pouvez déjà voir le <a href="exemple_pong.html" target="pong">résultat</a> et observer le code source)
