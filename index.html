@@ -232,11 +232,11 @@ GL.dessiner('element1');
         La première fonction permet d'appeler votre fonction lorsqu'une touche est enfoncée, la deuxième lorsqu'une touche est relâchée.
       </p>
       <p>
-        Par exemple, pour faire en sorte qu'une fonction nommée <code>maFonctionTouche</code> soit appelée lorsqu'on appuie sur une touche, il faut exécuter l'instruction suivante lors de l'initialisation :
+        Par exemple, pour faire en sorte qu'une fonction nommée <code>toucheAppuyee</code> soit appelée lorsqu'on appuie sur une touche, il faut exécuter l'instruction suivante lors de l'initialisation :
       </p>
       <pre>
         <code class="language-js">
-GL.definirFonctionToucheEnfoncee(maFonctionTouche);
+GL.definirFonctionToucheEnfoncee(toucheAppuyee);
         </code>
       </pre>
       <p>
@@ -244,7 +244,7 @@ GL.definirFonctionToucheEnfoncee(maFonctionTouche);
       </p>
       <pre>
         <code class="language-js">
-function maFonctionTouche(nomTouche){
+function toucheAppuyee(nomTouche){
   if(nomTouche=='ArrowUp'){
     // instruction(s) à exécuter lorsque "flèche haut" est appuyée
   }
