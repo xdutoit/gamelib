@@ -23,7 +23,7 @@
       obstacle_etat = OBSTACLE_CACHE;
 
       document.getElementById('btn_step').addEventListener('click', step);
-      
+
       GL.setDebugLevel(1);
     }
 
@@ -54,7 +54,7 @@
       GL.effacerTout();
       GL.dessinerTout();
 
-      document.querySelector('#sp_etat').innerHTML = (obstacle_etat==OBSTACLE_VISIBLE?'OBSTACLE_VISIBLE':'OBSTACLE_CACHE');
+      document.querySelector('#sp_etat').innerHTML = (obstacle_etat == OBSTACLE_VISIBLE ? 'OBSTACLE_VISIBLE' : 'OBSTACLE_CACHE');
       document.querySelector('#sp_random').innerHTML = hasard;
     }
   </script>

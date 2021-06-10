@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>GameLib - librairie JS pour les jeux</title>
   <meta charset="utf-8" />
@@ -10,6 +11,7 @@
   <script src="script/highlight.pack.js"></script>
   <script src="script/gl_page.js"></script>
 </head>
+
 <body>
   <nav>
     <a class="a_ref" href="reference.html" target="tab_ref">référence</a>
@@ -19,7 +21,7 @@
   </nav>
   <div id="main_container">
     <div id="main_title">
-      gamelib.js<br/>
+      gamelib.js<br />
       une librairie JS pour faire des jeux
     </div>
     <section>
@@ -41,11 +43,14 @@
         <caption>Exemple d'arborescence</caption>
       </figure>
       <p>
-        Vous pouvez télécharger directement <a href="fichiers/fichiers_depart.zip">un dossier zippé avec tous les éléments nécessaires</a>. Si tout est installé correctement, vous devriez voir le message "ça marche !" au chargement de la page.
+        Vous pouvez télécharger directement <a href="fichiers/fichiers_depart.zip">un dossier zippé avec tous les
+          éléments nécessaires</a>. Si tout est installé correctement, vous devriez voir le message "ça marche !" au
+        chargement de la page.
       </p>
       <h2>Page web</h2>
       <p>
-        La page web doit contenir au moins un lien vers la librairie et une balise canvas, et éventuellement une ou plusieurs images.
+        La page web doit contenir au moins un lien vers la librairie et une balise canvas, et éventuellement une ou
+        plusieurs images.
       </p>
       <p>
         Le fichier de la librairie s'appelle <code>gamelib.js</code>. On peut donc l'inclure ainsi dans la page web :
@@ -67,7 +72,8 @@
         (pour plus d'information sur la balise canvas, voir <a href="#dessiner_canvas">dessiner sur le canvas</a>)
       </p>
       <p>
-        Il faut ensuite inclure chacune des images, avec à chaque fois un identifiant. On peut le faire dans une div invisible (sinon les images apparaissent sur la page) :
+        Il faut ensuite inclure chacune des images, avec à chaque fois un identifiant. On peut le faire dans une div
+        invisible (sinon les images apparaissent sur la page) :
       </p>
       <pre>
         <code class="language-html">
@@ -90,11 +96,13 @@
         <li>inclure l'élément dans le script (cf. <a href="#inclure">ci-dessous</a>)</li>
       </ul>
       <p>
-        Si plusieurs éléments ont la même image, on peut insérer une seule fois l'image dans la page web, mais il faudra inclure plusieurs éléments dans le script.
+        Si plusieurs éléments ont la même image, on peut insérer une seule fois l'image dans la page web, mais il faudra
+        inclure plusieurs éléments dans le script.
       </p>
       <h2>La fonction init()</h2>
       <p>
-        Le script doit comprendre une fonction nommée <code>init()</code>. Cette fonction sera automatiquement appelée par la librairie au chargement de la page. Cette fonction doit contenir toute la mise en place pour le jeu.
+        Le script doit comprendre une fonction nommée <code>init()</code>. Cette fonction sera automatiquement appelée
+        par la librairie au chargement de la page. Cette fonction doit contenir toute la mise en place pour le jeu.
       </p>
       <pre>
         <code class="language-js">
@@ -106,7 +114,9 @@ function init(){
       </pre>
       <h2 id="inclure">Importation des éléments : la fonction inclure()</h2>
       <p>
-        Chaque élément du jeu doit être "inclus" avant de pouvoir être utilisé. On le fait à l'aide de la fonction <code>inclure()</code>. Cette fonction prend deux arguments : le nom de l'élément (on doit nommer chaque élément afin de pouvoir l'identifier par la suite) et l'id de l'image associée.<br/>
+        Chaque élément du jeu doit être "inclus" avant de pouvoir être utilisé. On le fait à l'aide de la fonction
+        <code>inclure()</code>. Cette fonction prend deux arguments : le nom de l'élément (on doit nommer chaque élément
+        afin de pouvoir l'identifier par la suite) et l'id de l'image associée.<br />
         Pour créer un élément <code>element1</code> qui a comme image <code>image1</code>, on fait :
       </p>
       <pre>
@@ -116,7 +126,8 @@ GL.inclure('element1','image1');
       </pre>
       <h2>Placement des éléments</h2>
       <p>
-        Pour placer un élément nommé <code>element1</code> à la position <code>(100,200)</code> et avec un angle de <code>30°</code>, on fait :
+        Pour placer un élément nommé <code>element1</code> à la position <code>(100,200)</code> et avec un angle de
+        <code>30°</code>, on fait :
       </p>
       <pre>
         <code class="language-js">
@@ -126,18 +137,21 @@ GL.setAngle('element1',30);
       </pre>
       <h2>Coordonnées : différence entre mathématiques et informatique</h2>
       <p>
-        Il faut faire attention aux coordonnées : en informatique, l'origine est en haut à gauche (ceci vient du fait qu'une page web a un début en haut, mais que la hauteur de la page dépend ensuite du contenu).
+        Il faut faire attention aux coordonnées : en informatique, l'origine est en haut à gauche (ceci vient du fait
+        qu'une page web a un début en haut, mais que la hauteur de la page dépend ensuite du contenu).
       </p>
       <div class="two_cols">
         <div>
           <figure>
-            <img src="image_web/coord_maths.svg" alt="coordonnées en mathématiques : l'origine est en bas à gauche et les angles se mesurent dans le sens antihoraire">
+            <img src="image_web/coord_maths.svg"
+              alt="coordonnées en mathématiques : l'origine est en bas à gauche et les angles se mesurent dans le sens antihoraire">
             <caption>coordonnées usuelles en mathématiques</caption>
           </figure>
         </div>
         <div>
           <figure>
-            <img src="image_web/coord_info.svg" alt="coordonnées en informatique : l'origine est en haut à gauche et les angles se mesurent dans le sens horaire">
+            <img src="image_web/coord_info.svg"
+              alt="coordonnées en informatique : l'origine est en haut à gauche et les angles se mesurent dans le sens horaire">
             <caption>coordonnées usuelles en informatique</caption>
           </figure>
         </div>
@@ -156,11 +170,13 @@ GL.dessiner('element1');
     <section>
       <h1 id="ex_1">Exercice 1 : un exemple minimal</h1>
       <ol>
-        <li><a href="#installation">installez la librairie</a> et téléchargez une <a href="image/rectangle.svg" target="_blank">image de rectangle</a> (ou créez votre propre image)</li>
+        <li><a href="#installation">installez la librairie</a> et téléchargez une <a href="image/rectangle.svg"
+            target="_blank">image de rectangle</a> (ou créez votre propre image)</li>
         <li>placez l'image dans un dossier <code>image</code></li>
         <li>créez une page web avec un canvas et une image (cette page existe déjà dans le dossier zippé de départ)</li>
         <li>créez un fichier de script (ce script existe déjà dans le dossier zippé de départ)</li>
-        <li>dans votre script, créez une fonction <code>init</code> qui place le rectangle aux coordonnées (100,200) avec un angle de 30° et dessinez-le</li>
+        <li>dans votre script, créez une fonction <code>init</code> qui place le rectangle aux coordonnées (100,200)
+          avec un angle de 30° et dessinez-le</li>
       </ol>
       <p>
         Vous devriez obtenir le résultat suivant :
@@ -170,7 +186,8 @@ GL.dessiner('element1');
         <caption>résultat de l'exemple 1 : un rectangle à (100,200) avec un angle de 30°</caption>
       </figure>
       <p>
-        Vous pouvez aller sur le <a href="exercice_init.html" target="_blank">corrigé de cet exercice</a>. Pour voir le script, affichez le code source de la page et cliquez sur le lien vers <code>exercice_init.js</code>.
+        Vous pouvez aller sur le <a href="exercice_init.html" target="_blank">corrigé de cet exercice</a>. Pour voir le
+        script, affichez le code source de la page et cliquez sur le lien vers <code>exercice_init.js</code>.
       </p>
     </section>
 
@@ -178,7 +195,8 @@ GL.dessiner('element1');
     <section>
       <h1 id="dessiner_canvas">Dessiner sur le <code>canvas</code></h1>
       <p>
-        En HTML5, la balise <code>canvas</code> crée une zone de dessin. Par exemple, pour créer un canvas de 600 pixels de large et 400 pixels de haut, on utilise le code suivant :
+        En HTML5, la balise <code>canvas</code> crée une zone de dessin. Par exemple, pour créer un canvas de 600 pixels
+        de large et 400 pixels de haut, on utilise le code suivant :
       </p>
       <pre>
         <code class="language-html">
@@ -189,10 +207,13 @@ GL.dessiner('element1');
         Une fois le canvas créé, on peut y dessiner un élément avec la fonction <code>dessiner()</code>.
       </p>
       <p>
-        Il est important de remarquer qu'<strong>un élément est indépendant de son dessin</strong>. En effet, bouger un élément (à l'aide par exemple de la fonction <code>setXY</code>) ne va rien changer au dessin tant qu'on aura pas redessiné l'élément.
+        Il est important de remarquer qu'<strong>un élément est indépendant de son dessin</strong>. En effet, bouger un
+        élément (à l'aide par exemple de la fonction <code>setXY</code>) ne va rien changer au dessin tant qu'on aura
+        pas redessiné l'élément.
       </p>
       <p>
-        De plus, <strong>dessiner un élément n'efface pas l'élément précédent</strong>. Il faut donc à chaque fois effacer tout le canvas avant de redessiner un élément à sa nouvelle position.
+        De plus, <strong>dessiner un élément n'efface pas l'élément précédent</strong>. Il faut donc à chaque fois
+        effacer tout le canvas avant de redessiner un élément à sa nouvelle position.
       </p>
       <p>
         Pour bouger un élément, il faut donc effectuer les opérations suivantes :
@@ -203,13 +224,16 @@ GL.dessiner('element1');
         <li>redessiner l'élément (fonction <code>dessiner()</code> ou <code>dessinerTout()</code> )</li>
       </ol>
       <p>
-        Allez sur <a href="sandbox_rect.html" target="sb_rect">cet exemple</a> et, directement sur la console, appelez la fonction <code>setX</code> et observez le résultat. Rien ne "bouge" tant que vous n'avez pas redessiné le canvas. N'oubliez pas de commencer par effacer le canvas avant de redessiner l'élément.
+        Allez sur <a href="sandbox_rect.html" target="sb_rect">cet exemple</a> et, directement sur la console, appelez
+        la fonction <code>setX</code> et observez le résultat. Rien ne "bouge" tant que vous n'avez pas redessiné le
+        canvas. N'oubliez pas de commencer par effacer le canvas avant de redessiner l'élément.
       </p>
     </section>
     <section>
       <h1 id="touches">Réagir aux touches du clavier</h1>
       <p>
-        Pour qu'un jeu soit interactif, il faut réagir lorsqu'on appuie sur certaines touches du clavier (par exemple, dans la plupart des jeux, les touches wasd servent à diriger le personnage).
+        Pour qu'un jeu soit interactif, il faut réagir lorsqu'on appuie sur certaines touches du clavier (par exemple,
+        dans la plupart des jeux, les touches wasd servent à diriger le personnage).
       </p>
       <p>
         Pour réagir à un touche, il faut effectuer deux actions :
@@ -219,7 +243,9 @@ GL.dessiner('element1');
         <li>"attacher" cette fonction au clavier</li>
       </ul>
       <p>
-        Il est important de noter qu'on définit <strong>une seule fonction</strong> qui sera appelée lorsque <strong>n'importe quelle touche</strong> du clavier est appuyée (ou relâchée). Le nom de la touche sera passé en paramètre à cette fonction.
+        Il est important de noter qu'on définit <strong>une seule fonction</strong> qui sera appelée lorsque
+        <strong>n'importe quelle touche</strong> du clavier est appuyée (ou relâchée). Le nom de la touche sera passé en
+        paramètre à cette fonction.
       </p>
       <p>
         Pour "attacher" une fonction, vous devez appeler une des deux fonctions suivantes :
@@ -229,10 +255,12 @@ GL.dessiner('element1');
         <li><code>definirFonctionToucheRelachee</code></li>
       </ul>
       <p>
-        La première fonction permet d'appeler votre fonction lorsqu'une touche est enfoncée, la deuxième lorsqu'une touche est relâchée.
+        La première fonction permet d'appeler votre fonction lorsqu'une touche est enfoncée, la deuxième lorsqu'une
+        touche est relâchée.
       </p>
       <p>
-        Par exemple, pour faire en sorte qu'une fonction nommée <code>toucheAppuyee</code> soit appelée lorsqu'on appuie sur une touche, il faut exécuter l'instruction suivante lors de l'initialisation :
+        Par exemple, pour faire en sorte qu'une fonction nommée <code>toucheAppuyee</code> soit appelée lorsqu'on appuie
+        sur une touche, il faut exécuter l'instruction suivante lors de l'initialisation :
       </p>
       <pre>
         <code class="language-js">
@@ -252,13 +280,17 @@ function toucheAppuyee(nomTouche){
         </code>
       </pre>
       <p>
-        Le paramètre passé à la fonction appelée en cas de touche enfoncée est le nom de la touche. Ces noms peuvent être :
+        Le paramètre passé à la fonction appelée en cas de touche enfoncée est le nom de la touche. Ces noms peuvent
+        être :
       </p>
       <ul>
         <li>les lettres : <code>a</code>, <code>b</code>, <code>c</code>, etc.</li>
         <li>les chiffres : <code>1</code>, <code>2</code>, <code>3</code>, etc.</li>
-        <li>les flèches : <code>ArrowUp</code>, <code>ArrowDown</code>, <code>ArrowLeft</code>, <code>ArrowRight</code></li>
-        <li>les autres touches spéciales : <code>Tab</code>, <code>Control</code>, <code>Alt</code>, <code>AltGraph</code>, <code>Shift</code>, <code>PageUp</code>, <code>PageDown</code>, <code>Home</code>, <code>End</code></li>
+        <li>les flèches : <code>ArrowUp</code>, <code>ArrowDown</code>, <code>ArrowLeft</code>, <code>ArrowRight</code>
+        </li>
+        <li>les autres touches spéciales : <code>Tab</code>, <code>Control</code>, <code>Alt</code>,
+          <code>AltGraph</code>, <code>Shift</code>, <code>PageUp</code>, <code>PageDown</code>, <code>Home</code>,
+          <code>End</code></li>
       </ul>
 
     </section>
@@ -266,7 +298,8 @@ function toucheAppuyee(nomTouche){
     <section>
       <h1 id="exo_touches">Exercice 2 : faire bouger le rectangle</h1>
       <p>
-        Si ce n'est pas encore fait, téléchargez <a href="image/rectangle.svg" target="_blank">l'image de rectangle</a> et incluez-la dans votre jeu.
+        Si ce n'est pas encore fait, téléchargez <a href="image/rectangle.svg" target="_blank">l'image de rectangle</a>
+        et incluez-la dans votre jeu.
       </p>
       <p>
         Placez cette image au milieu du canevas, c'est-à-dire aux coordonnées (300;200).
@@ -282,7 +315,8 @@ function toucheAppuyee(nomTouche){
         </code>
       </pre>
       <p>
-        Faites en sorte que votre fonction <code>toucheAppuyee</code> soit appelée dès qu'on appuye sur une touche, en ajoutant ce code dans la fonction <code>init</code> :
+        Faites en sorte que votre fonction <code>toucheAppuyee</code> soit appelée dès qu'on appuye sur une touche, en
+        ajoutant ce code dans la fonction <code>init</code> :
       </p>
       <pre>
         <code class="language-js">
@@ -290,7 +324,9 @@ GL.definirFonctionToucheEnfoncee(toucheAppuyee);
         </code>
       </pre>
       <p>
-        Complétez maintenant le corps de la fonction <code>toucheAppuyee</code> pour que les touches fléchées fassent bouger le rectangle. Par exemple, pour que la touche "flèche gauche" fasse bouger le rectangle de 10 pixels vers la gauche, écrivez :
+        Complétez maintenant le corps de la fonction <code>toucheAppuyee</code> pour que les touches fléchées fassent
+        bouger le rectangle. Par exemple, pour que la touche "flèche gauche" fasse bouger le rectangle de 10 pixels vers
+        la gauche, écrivez :
       </p>
       <pre>
         <code class="language-js">
@@ -305,7 +341,8 @@ function toucheAppuyee(nomTouche){
         Faites en sorte que les 4 touches fléchées fassent bouger le rectangle dans la direction correspondante.
       </p>
       <p>
-        N'oubliez pas d'effacer et de redessiner tout le canevas après chaque déplacement du rectangle. La fin de votre fonction <code>toucheAppuyee</code> doit donc être :
+        N'oubliez pas d'effacer et de redessiner tout le canevas après chaque déplacement du rectangle. La fin de votre
+        fonction <code>toucheAppuyee</code> doit donc être :
       </p>
       <pre>
         <code class="language-js">
@@ -319,7 +356,8 @@ function toucheAppuyee(nomTouche){
         </code>
       </pre>
       <p>
-        Vous pouvez aller voir le <a href="exercice_touche.html" target="_blank">corrigé de cet exercice</a>. Pour voir le script, affichez le code source de la page et cliquez sur le lien vers <code>exercice_init.js</code>.
+        Vous pouvez aller voir le <a href="exercice_touche.html" target="_blank">corrigé de cet exercice</a>. Pour voir
+        le script, affichez le code source de la page et cliquez sur le lien vers <code>exercice_init.js</code>.
       </p>
 
     </section>
@@ -327,7 +365,9 @@ function toucheAppuyee(nomTouche){
     <section>
       <h1 id="iterations">Faire avancer le jeu : les itérations</h1>
       <p>
-        Dans un jeu dynamique, certains éléments sont autonomes. Il faut donc régulièrement les faire bouger et rafraîchir l'affichage. Il doit donc y avoir une fonction qui est appelée à chaque "itération" du jeu. Cette fonction a (au moins) les tâches suivantes :
+        Dans un jeu dynamique, certains éléments sont autonomes. Il faut donc régulièrement les faire bouger et
+        rafraîchir l'affichage. Il doit donc y avoir une fonction qui est appelée à chaque "itération" du jeu. Cette
+        fonction a (au moins) les tâches suivantes :
       </p>
       <ul>
         <li>déplacer les objets autonomes</li>
@@ -335,7 +375,7 @@ function toucheAppuyee(nomTouche){
         <li>vérifier les conditions de fin de partie</li>
       </ul>
       <p>
-        Dans l'exemple du <a href="#pong">pong</a> :
+        Dans l'exemple du <a href="#exemples_jeux">pong</a> :
       </p>
       <ul>
         <li>l'élément autonome (qui se déplace tout seul) est la balle</li>
@@ -350,17 +390,21 @@ function toucheAppuyee(nomTouche){
         <li>vérifier les collisions sur les murs gauche et droite (conditions de fin de partie)</li>
       </ul>
       <p>
-        Pour déplacer un objet, le plus simple est de lui attribuer une vitesse (par exemple, en coordonnées cartésiennes, un <code>dx</code> et un <code>dy</code> qui représentent le déplacement effectué à chaque itération).
+        Pour déplacer un objet, le plus simple est de lui attribuer une vitesse (par exemple, en coordonnées
+        cartésiennes, un <code>dx</code> et un <code>dy</code> qui représentent le déplacement effectué à chaque
+        itération).
       </p>
       <p>
-        Sur <a href="sandbox_step.html" target="sb_step">cet exemple</a>, vous pouvez soit cliquer sur "step" et faire UNE itération, soir cliquer sur "Démarrer" pour effectuer automatiquement les itérations.
+        Sur <a href="sandbox_step.html" target="sb_step">cet exemple</a>, vous pouvez soit cliquer sur "step" et faire
+        UNE itération, soir cliquer sur "Démarrer" pour effectuer automatiquement les itérations.
       </p>
     </section>
 
     <section>
       <h1 id="trigo">Exercice 3 : déplacement relatif à l'orientation</h1>
       <p>
-        Pour déplacer un objet suivant les axes, ont peut simplement ajouter (ou soustraire) un certain nombre de pixels à ses coordonnées en X et en Y (à l'aide de <code>addX</code> et <code>addY</code>).<br>
+        Pour déplacer un objet suivant les axes, ont peut simplement ajouter (ou soustraire) un certain nombre de pixels
+        à ses coordonnées en X et en Y (à l'aide de <code>addX</code> et <code>addY</code>).<br>
         Par exemple, pour bouger l'élément 'elem1' de 20 pixels vers la droite, on peut faire :
       </p>
       <pre>
@@ -369,17 +413,21 @@ GL.addX('elem1',20);
         </code>
       </pre>
       <p>
-        Parfois, il est nécessaire de bouger un objet relativement à son orientation. Par exemple, la touche flèche haut le fera avancer dans la direction vers laquelle il pointe.
+        Parfois, il est nécessaire de bouger un objet relativement à son orientation. Par exemple, la touche flèche haut
+        le fera avancer dans la direction vers laquelle il pointe.
       </p>
       <p>
         Pour savoir à quel déplacement cela correspond sur les différents axes, il faut faire de la trigonométrie :
       </p>
       <figure>
-        <img src="image_web/trigo_deplacement.svg" alt="calcul trigonométrique pour trouver le déplacement suivants les axes : dx=dr*cos(a), dy=dr*sin(a)">
+        <img src="image_web/trigo_deplacement.svg"
+          alt="calcul trigonométrique pour trouver le déplacement suivants les axes : dx=dr*cos(a), dy=dr*sin(a)">
         <caption>relation entre déplacement "relatif" et déplacement selon les axes</caption>
       </figure>
       <p>
-        En Javascript, les fonctions <code>Math.cos(n)</code> et <code>Math.sin(n)</code> permettent de calculer le (co)sinus d'un angle <code>n</code>. <strong>Ces fonctions attendent un argument en radians !</strong> Pour calculer le cosinus de 20 degrés (et le stocker dans la variable <code>c</code> ), par exemple, il faut faire :
+        En Javascript, les fonctions <code>Math.cos(n)</code> et <code>Math.sin(n)</code> permettent de calculer le
+        (co)sinus d'un angle <code>n</code>. <strong>Ces fonctions attendent un argument en radians !</strong> Pour
+        calculer le cosinus de 20 degrés (et le stocker dans la variable <code>c</code> ), par exemple, il faut faire :
       </p>
       <pre>
         <code class="language-js">
@@ -399,20 +447,27 @@ let c = Math.cos(20 * Math.PI/180);
         <li>flèche bas : le rectangle recule de 10 pixels (dans la direction vers laquelle il pointe)</li>
       </ul>
       <p>
-        Vous pouvez aller sur le <a href="exercice_trigo.html" target="_blank">corrigé de cet exercice</a>. Pour voir le script, affichez le code source de la page et cliquez sur le lien vers <code>exercice_trigo.js</code>.
+        Vous pouvez aller sur le <a href="exercice_trigo.html" target="_blank">corrigé de cet exercice</a>. Pour voir le
+        script, affichez le code source de la page et cliquez sur le lien vers <code>exercice_trigo.js</code>.
       </p>
     </section>
 
     <section>
       <h1 id="var_etat">Les variables d'état</h1>
       <p>
-        Dans un jeu, il est souvent utile de coder l'état du jeu. Par exemple, est-ce que le jeu est : en train de jouer, n'a pas encore démarré ou a terminé ? Dans l'exemple du <a href="#pong">pong</a>, est-ce que la barre gauche est en train de monter, de descendre ou est immobile ? D'autres exemples d'états du jeu sont le niveau actuel, le score actuel, la vitesse et la direction actuelles d'un objet, etc.
+        Dans un jeu, il est souvent utile de coder l'état du jeu. Par exemple, est-ce que le jeu est : en train de
+        jouer, n'a pas encore démarré ou a terminé ? Dans l'exemple du <a href="#exemples_jeux">pong</a>, est-ce que la
+        barre gauche est en train de monter, de descendre ou est immobile ? D'autres exemples d'états du jeu sont le
+        niveau actuel, le score actuel, la vitesse et la direction actuelles d'un objet, etc.
       </p>
       <p>
-        Dans toutes ces situations, on peut créer une variable, nommée variable d'état, qui représente l'état du jeu. Elle peut ainsi prendre plusieurs valeurs suivant l'état actuel du jeu. On peut alors faire des tests sur cette variable et effectuer ou non une certaine instruction en fonction de la valeur de la variable.
+        Dans toutes ces situations, on peut créer une variable, nommée variable d'état, qui représente l'état du jeu.
+        Elle peut ainsi prendre plusieurs valeurs suivant l'état actuel du jeu. On peut alors faire des tests sur cette
+        variable et effectuer ou non une certaine instruction en fonction de la valeur de la variable.
       </p>
       <p>
-        Il est important que la variable d'état soit une variable globale. Il faut donc la créer en-dehors de toute instruction :
+        Il est important que la variable d'état soit une variable globale. Il faut donc la créer en-dehors de toute
+        instruction :
       </p>
       <pre>
         <code class="language_js">
@@ -421,7 +476,10 @@ let etat_jeu;
       </pre>
 
       <p>
-        Pour coder des états comme un score ou un niveau, il est naturel de prendre des numéros. Mais ceci peut aussi s'appliquer à d'autres états. Par exemple, pour savoir si un jeu n'a pas encore démarré, est en train de jouer ou est terminé, il est possible de créer une variable nommée par exemple <code>etat_jeu</code> et de choisir arbitrairement les valeurs suivantes :
+        Pour coder des états comme un score ou un niveau, il est naturel de prendre des numéros. Mais ceci peut aussi
+        s'appliquer à d'autres états. Par exemple, pour savoir si un jeu n'a pas encore démarré, est en train de jouer
+        ou est terminé, il est possible de créer une variable nommée par exemple <code>etat_jeu</code> et de choisir
+        arbitrairement les valeurs suivantes :
       </p>
       <ul>
         <li>0 : jeu pas encore démarré</li>
@@ -448,7 +506,9 @@ else if(etat_jeu==2){
         </code>
       </pre>
       <p>
-        Pour ne pas avoir à se souvenir de quelle valeur représente quel état, on peut créer des constantes avec les valeurs données et des noms faciles à mémoriser. Une constante est comme une variable, sauf qu'elle ne varie pas (!). Par convention, on nomme les constantes en majuscules.
+        Pour ne pas avoir à se souvenir de quelle valeur représente quel état, on peut créer des constantes avec les
+        valeurs données et des noms faciles à mémoriser. Une constante est comme une variable, sauf qu'elle ne varie pas
+        (!). Par convention, on nomme les constantes en majuscules.
       </p>
       <p>
         Ainsi, il est possible de mettre au début du programme (en-dehors de toute fonction) :
@@ -460,7 +520,7 @@ const EN_COURS = 1;
 const FINI = 2;
         </code>
       </pre>
-      <p> 
+      <p>
         Le code de l'exemple précédent devient alors plus lisible :
       </p>
       <pre>
@@ -484,10 +544,13 @@ else if(etat_jeu==FINI){
     <section>
       <h1>Exemple : faire apparaître des éléments aléatoirement</h1>
       <p>
-        Dans de nombreux jeux, il y a des éléments qui apparaissent depuis un bord de l'écran de manière aléatoire (par exemple des obstacles à éviter, des fruits à ramasser, etc.).
+        Dans de nombreux jeux, il y a des éléments qui apparaissent depuis un bord de l'écran de manière aléatoire (par
+        exemple des obstacles à éviter, des fruits à ramasser, etc.).
       </p>
       <p>
-        Si on veut limiter le nombre d'élément visible en même temps, on doit stocker l'état du jeu dans une variable. Prenons l'exemple d'un obstacle qui apparaît depuis la droite et bouge vers la gauche. On a alors plusieurs états :
+        Si on veut limiter le nombre d'élément visible en même temps, on doit stocker l'état du jeu dans une variable.
+        Prenons l'exemple d'un obstacle qui apparaît depuis la droite et bouge vers la gauche. On a alors plusieurs
+        états :
       </p>
       <ul>
         <li>l'obstacle n'est pas visible</li>
@@ -558,19 +621,15 @@ function step(){
     </section>
 
     <section>
-      <h1 id="pong">Exemple complet 1 : le pong</h1>
-      
-      en construction... <br>
-      (mais vous pouvez déjà voir le <a href="exemple_pong.html" target="pong">résultat</a> et observer le code source)
+      <h1 id="exemples_jeux">Exemples de jeux complets</h1>
+      <ul>
+        <li><a href="exemple_pong.html" target="pong">pong (clavier)</a></li>
+        <li><a href="exemple_pong2.html" target="pong2">pong (souris)</a></li>
+        <li><a href="exemple_courseObstacles.html" target="pong">course d'obstacles</a></li>
+      </ul>
     </section>
 
-    <section>
-      <h1 id="courseObstacles">Exemple complet 2 : les obstacles</h1>
-      
-      en construction... <br>
-      (mais vous pouvez déjà voir le <a href="exemple_courseObstacles.html" target="courseObstacles">résultat</a> et observer le code source)
-    </section>
+  </div>
+</body>
 
-    </div>
-  </body>
-  </html>
+</html>

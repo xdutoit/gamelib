@@ -7,6 +7,7 @@
 	<script src="script/gamelib.js"></script>
 	<script>
 	function init(){
+		/*
 		GL.inclure('elem1','rect1');
 		GL.setXY('elem1',300,200);
 		GL.setAngle('elem1',60);
@@ -15,8 +16,14 @@
 		GL.dessinerTout();
 
 		GL.definirFonctionToucheEnfoncee(touche);
+		*/
+		GL.definirFonctionSourisClic(sourisss); 
 	}
 
+	function souris(x,y){
+		console.log('x='+x+'; y='+y);
+	}
+/*
 	function touche(t){
 		let da = 5;
 		let dr = 10;
@@ -40,6 +47,7 @@
 			console.log('TOUCHE');
 		}
 	}
+*/
 	</script>
 </head>
 <body>

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="fera">
+
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style/gl_style.css">
   <title>gamelib: référence</title>
 </head>
+
 <body class="body_ref">
   <strong>remarques:</strong>
   <ul>
@@ -18,279 +20,295 @@
       gardez en tête que cette librairie est encore en construction...
     </li>
   </ul>
-    <table class="tab_ref">
-      <tr>
-        <th colspan="2">inclure les éléments</th>
-      </tr>
-      <tr>
-        <td>
-          inclure(id, id_img)
-        </td>
-        <td>
-          inclut l'image avec l'id <code>id_img</code> comme élément nommé <code>id</code>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          clone(id, new_id)
-        </td>
-        <td>
-          clone l'élément <code>id</code> en un nouvel élément nommé <code>new_id</code>
-        </td>
-      </tr>
+  <table class="tab_ref">
+    <tr>
+      <th colspan="2">inclure les éléments</th>
+    </tr>
+    <tr>
+      <td>
+        inclure(id, id_img)
+      </td>
+      <td>
+        inclut l'image avec l'id <code>id_img</code> comme élément nommé <code>id</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        clone(id, new_id)
+      </td>
+      <td>
+        clone l'élément <code>id</code> en un nouvel élément nommé <code>new_id</code>
+      </td>
+    </tr>
 
-      <tr>
-        <th colspan="2">dessiner</th>
-      </tr>
-      <tr>
-        <td>
-          dessiner(id)
-        </td>
-        <td>
-          dessine l'élément <code>id</code>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          dessinerTout()
-        </td>
-        <td>
-          dessine tous les éléments
-        </td>
-      </tr>
-      <tr>
-        <td>
-          effacerTout()
-        </td>
-        <td>
-          efface tout le canvas
-        </td>
-      </tr>
+    <tr>
+      <th colspan="2">dessiner</th>
+    </tr>
+    <tr>
+      <td>
+        dessiner(id)
+      </td>
+      <td>
+        dessine l'élément <code>id</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        dessinerTout()
+      </td>
+      <td>
+        dessine tous les éléments
+      </td>
+    </tr>
+    <tr>
+      <td>
+        effacerTout()
+      </td>
+      <td>
+        efface tout le canvas
+      </td>
+    </tr>
 
-      <tr>
-        <th colspan="2">positionner les éléments</th>
-      </tr>
-      <tr>
-        <td>
-          setXY(id,x,y)
-        </td>
-        <td>
-          positionne le centre de l'élément <code>id</code> aux coordonée <code>(x;y)</code>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          setX(id,x)
-        </td>
-        <td>
-          positionne le centre de l'élément <code>id</code> à l'abscisse <code>x</code>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          setY(id,y)
-        </td>
-        <td>
-          positionne le centre de l'élément <code>id</code> à l'ordonnée <code>y</code>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          setAngle(id,a)
-        </td>
-        <td>
-          applique l'angle <code>a</code> (en degrés) à l'élément <code>id</code>
-        </td>
-      </tr>
+    <tr>
+      <th colspan="2">positionner les éléments</th>
+    </tr>
+    <tr>
+      <td>
+        setXY(id,x,y)
+      </td>
+      <td>
+        positionne le centre de l'élément <code>id</code> aux coordonée <code>(x;y)</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        setX(id,x)
+      </td>
+      <td>
+        positionne le centre de l'élément <code>id</code> à l'abscisse <code>x</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        setY(id,y)
+      </td>
+      <td>
+        positionne le centre de l'élément <code>id</code> à l'ordonnée <code>y</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        setAngle(id,a)
+      </td>
+      <td>
+        applique l'angle <code>a</code> (en degrés) à l'élément <code>id</code>
+      </td>
+    </tr>
 
-      <tr>
-        <th colspan="2">déplacer les éléments</th>
-      </tr>
-      <tr>
-        <td>
-          addXY(id,dx,dy)
-        </td>
-        <td>
-          déplace l'élément <code>id</code> de <code>dx</code> pixels vers la droite et de <code>dy</code> pixels vers le bas
-        </td>
-      </tr>
-      <tr>
-        <td>
-          addX(id,dx)
-        </td>
-        <td>
-          déplace l'élément <code>id</code> de <code>dx</code> pixels vers la droite
-        </td>
-      </tr>
-      <tr>
-        <td>
-          addY(id,dy)
-        </td>
-        <td>
-          déplace l'élément <code>id</code> de <code>dy</code> pixels vers le bas
-        </td>
-      </tr>
-      <tr>
-        <td>
-          addAngle(id,da)
-        </td>
-        <td>
-          fait tourner l'élément <code>id</code> de <code>da</code> degrés dans le sens horaire
-        </td>
-      </tr>
+    <tr>
+      <th colspan="2">déplacer les éléments</th>
+    </tr>
+    <tr>
+      <td>
+        addXY(id,dx,dy)
+      </td>
+      <td>
+        déplace l'élément <code>id</code> de <code>dx</code> pixels vers la droite et de <code>dy</code> pixels vers le
+        bas
+      </td>
+    </tr>
+    <tr>
+      <td>
+        addX(id,dx)
+      </td>
+      <td>
+        déplace l'élément <code>id</code> de <code>dx</code> pixels vers la droite
+      </td>
+    </tr>
+    <tr>
+      <td>
+        addY(id,dy)
+      </td>
+      <td>
+        déplace l'élément <code>id</code> de <code>dy</code> pixels vers le bas
+      </td>
+    </tr>
+    <tr>
+      <td>
+        addAngle(id,da)
+      </td>
+      <td>
+        fait tourner l'élément <code>id</code> de <code>da</code> degrés dans le sens horaire
+      </td>
+    </tr>
 
-      <tr>
-        <th colspan="2">informations les éléments</th>
-      </tr>
-      <tr>
-        <td>
-          getX(id)
-        </td>
-        <td>
-          renvoie l'ordonnée du centre de l'élément <code>id</code>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          getY(id)
-        </td>
-        <td>
-          renvoie l'abscisse du centre de l'élément <code>id</code>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          getAngle(id)
-        </td>
-        <td>
-          renvoie l'angle de l'élément <code>id</code>
-        </td>
-      </tr>
+    <tr>
+      <th colspan="2">informations les éléments</th>
+    </tr>
+    <tr>
+      <td>
+        getX(id)
+      </td>
+      <td>
+        renvoie l'ordonnée du centre de l'élément <code>id</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        getY(id)
+      </td>
+      <td>
+        renvoie l'abscisse du centre de l'élément <code>id</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        getAngle(id)
+      </td>
+      <td>
+        renvoie l'angle de l'élément <code>id</code>
+      </td>
+    </tr>
 
-      <tr>
-        <th colspan="2">détection de collision</th>
-      </tr>
-      <tr>
-        <td>
-          collisionMurGauche(id)
-        </td>
-        <td>
-          renvoie <code>vrai</code> si l'élément <code>id</code> touche le bord gauche du canevas
-        </td>
-      </tr>
-      <tr>
-        <td>
-          collisionMurDroite(id)
-        </td>
-        <td>
-          renvoie <code>vrai</code> si l'élément <code>id</code> touche le bord droite du canevas
-        </td>
-      </tr>
-      <tr>
-        <td>
-          collisionMurHaut(id)
-        </td>
-        <td>
-          renvoie <code>vrai</code> si l'élément <code>id</code> touche le haut du canevas
-        </td>
-      </tr>
-      <tr>
-        <td>
-          collisionMurBas(id)
-        </td>
-        <td>
-          renvoie <code>vrai</code> si l'élément <code>id</code> touche le bas du canevas
-        </td>
-      </tr>
-      <tr>
-        <td>
-          collision(id1, id2)
-        </td>
-        <td>
-          renvoie <code>vrai</code> si l'élément <code>id1</code> touche l'élément <code>id2</code> (les collisions sont basées sur des éléments rectangulaires)
-        </td>
-      </tr>
+    <tr>
+      <th colspan="2">détection de collision</th>
+    </tr>
+    <tr>
+      <td>
+        collisionMurGauche(id)
+      </td>
+      <td>
+        renvoie <code>vrai</code> si l'élément <code>id</code> touche le bord gauche du canevas
+      </td>
+    </tr>
+    <tr>
+      <td>
+        collisionMurDroite(id)
+      </td>
+      <td>
+        renvoie <code>vrai</code> si l'élément <code>id</code> touche le bord droite du canevas
+      </td>
+    </tr>
+    <tr>
+      <td>
+        collisionMurHaut(id)
+      </td>
+      <td>
+        renvoie <code>vrai</code> si l'élément <code>id</code> touche le haut du canevas
+      </td>
+    </tr>
+    <tr>
+      <td>
+        collisionMurBas(id)
+      </td>
+      <td>
+        renvoie <code>vrai</code> si l'élément <code>id</code> touche le bas du canevas
+      </td>
+    </tr>
+    <tr>
+      <td>
+        collision(id1, id2)
+      </td>
+      <td>
+        renvoie <code>vrai</code> si l'élément <code>id1</code> touche l'élément <code>id2</code> (les collisions sont
+        basées sur des éléments rectangulaires)
+      </td>
+    </tr>
 
-      <tr>
-        <th colspan="2">texte</th>
-      </tr>
-      <tr>
-        <td>
-          ecrireTexte(txt, posx, posy, [fontsize], [align])
-        </td>
-        <td>
-          écrit le texte <code>txt</code> aux coordonnées <code>(posx; posy)</code> avec une taille de <code>fontsize</code> pixels (par défaut: <code>20</code> pixels); le texte est aligné suivant <code>align</code> (par défaut: <code>left</code>)
-        </td>
-      </tr>
+    <tr>
+      <th colspan="2">texte</th>
+    </tr>
+    <tr>
+      <td>
+        ecrireTexte(txt, posx, posy, [fontsize], [align])
+      </td>
+      <td>
+        écrit le texte <code>txt</code> aux coordonnées <code>(posx; posy)</code> avec une taille de
+        <code>fontsize</code> pixels (par défaut: <code>20</code> pixels); le texte est aligné suivant
+        <code>align</code> (par défaut: <code>left</code>)
+      </td>
+    </tr>
 
-      <tr>
-        <th colspan="2">itérations</th>
-      </tr>
-      <tr>
-        <td>
-          demarrer()
-        </td>
-        <td>
-          commence à appeler la fonction <code>step</code> toutes les 10 millisecondes (la même fonction sert à arrêter le jeu s'il est déjà démarré)
-        </td>
-      </tr>
-      <tr>
-        <td>
-          arreter()
-        </td>
-        <td>
-          force l'arrêt du jeu
-        </td>
-      </tr>
-      <tr>
-        <td>
-          setDureeIntervalle(d)
-        </td>
-        <td>
-          change la durée entre deux appels de la fonction <code>step</code> à <code>d</code> millisecondes
-        </td>
-      </tr>
+    <tr>
+      <th colspan="2">itérations</th>
+    </tr>
+    <tr>
+      <td>
+        demarrer()
+      </td>
+      <td>
+        commence à appeler la fonction <code>step</code> toutes les 10 millisecondes (la même fonction sert à arrêter le
+        jeu s'il est déjà démarré)
+      </td>
+    </tr>
+    <tr>
+      <td>
+        arreter()
+      </td>
+      <td>
+        force l'arrêt du jeu
+      </td>
+    </tr>
+    <tr>
+      <td>
+        setDureeIntervalle(d)
+      </td>
+      <td>
+        change la durée entre deux appels de la fonction <code>step</code> à <code>d</code> millisecondes
+      </td>
+    </tr>
 
-      <tr>
-        <th colspan="2">clavier</th>
-      </tr>
-      <tr>
-        <td>
-          definirFonctionToucheEnfoncee(f)
-        </td>
-        <td>
-          fait en sorte que la fonction <code>f</code> soit appelée chaque fois qu'une touche du clavier est enfoncée
-        </td>
-      </tr>
-      <tr>
-        <td>
-          definirFonctionToucheRelachee(f)
-        </td>
-        <td>
-          fait en sorte que la fonction <code>f</code> soit appelée chaque fois qu'une touche du clavier est relâchée
-        </td>
-      </tr>
+    <tr>
+      <th colspan="2">clavier</th>
+    </tr>
+    <tr>
+      <td>
+        definirFonctionToucheEnfoncee(f)
+      </td>
+      <td>
+        fait en sorte que la fonction <code>f</code> soit appelée chaque fois qu'une touche du clavier est enfoncée (la
+        fonction <code>f</code> reçoit en paramètre lenom de la touche)
+      </td>
+    </tr>
+    <tr>
+      <td>
+        definirFonctionToucheRelachee(f)
+      </td>
+      <td>
+        fait en sorte que la fonction <code>f</code> soit appelée chaque fois qu'une touche du clavier est relâchée (la
+        fonction <code>f</code> reçoit en paramètre lenom de la touche)
+      </td>
+    </tr>
+    <tr>
+      <td>
+        definirFonctionSourisBougee(f)
+      </td>
+      <td>
+        fait en sorte que la fonction <code>f</code> soit appelée chaque fois que la souris est bougée (la fonction
+        <code>f</code> reçoit en paramètres les coordonnées de la souris)
+      </td>
+    </tr>
 
-      <tr>
-        <th colspan="2">divers</th>
-      </tr>
-      <tr>
-        <td>
-          setDebugLevel(lvl)
-        </td>
-        <td>
-          change la quantité de messages affichés dans la console:
-          <ul>
-            <li>0: fonctionnement général</li>
-            <li>1: inclusion d'éléments</li>
-            <li>2: fonctions de dessin</li>
-            <li>3: mouvements d'éléments et appels de fonctions</li>
-          </ul>
-        </td>
-      </tr>
+    <tr>
+      <th colspan="2">divers</th>
+    </tr>
+    <tr>
+      <td>
+        setDebugLevel(lvl)
+      </td>
+      <td>
+        change la quantité de messages affichés dans la console:
+        <ul>
+          <li>0: fonctionnement général</li>
+          <li>1: inclusion d'éléments</li>
+          <li>2: fonctions de dessin</li>
+          <li>3: mouvements d'éléments et appels de fonctions</li>
+          <li>4: mouvements de la souris</li>
+        </ul>
+      </td>
+    </tr>
 
-
-
-    </table>
+  </table>
 </body>
+
 </html>

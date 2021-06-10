@@ -1,64 +1,67 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="utf-8" />
-	<title>sandbox 2: step</title>
-	<link rel="stylesheet" href="style/gl_style_light.css"/>
-	<script src="script/gamelib.js"></script>
-	<script>
-	function init(){
-		GL.inclure('elem1','rect1');
-		GL.setXY('elem1',300,200);
-		GL.dessiner('elem1');
+  <meta charset="utf-8" />
+  <title>sandbox 2: step</title>
+  <link rel="stylesheet" href="style/gl_style_light.css" />
+  <script src="script/gamelib.js"></script>
+  <script>
+    function init() {
+      GL.inclure('elem1', 'rect1');
+      GL.setXY('elem1', 300, 200);
+      GL.dessiner('elem1');
 
-		document.getElementById('btn_step').addEventListener('click',step);
-	}
+      document.getElementById('btn_step').addEventListener('click', step);
+    }
 
-	function step(){
-    // récupérer les valeurs de dx et dy depuis la page web
-		let dx = parseInt(document.getElementById('inp_dx').value);
-		let dy = parseInt(document.getElementById('inp_dy').value);
+    function step() {
+      // récupérer les valeurs de dx et dy depuis la page web
+      let dx = parseInt(document.getElementById('inp_dx').value);
+      let dy = parseInt(document.getElementById('inp_dy').value);
 
-    // faire bouger l'élément et mettre à jour le dessin
-		GL.addXY('elem1',dx,dy);
-		GL.effacerTout();
-		GL.dessiner('elem1');
+      // faire bouger l'élément et mettre à jour le dessin
+      GL.addXY('elem1', dx, dy);
+      GL.effacerTout();
+      GL.dessiner('elem1');
 
-    // mettre à jour la position sur la page web
-		document.getElementById('sp_x').innerHTML = GL.getX('elem1');
-		document.getElementById('sp_y').innerHTML = GL.getY('elem1');
-	}
-	</script>
+      // mettre à jour la position sur la page web
+      document.getElementById('sp_x').innerHTML = GL.getX('elem1');
+      document.getElementById('sp_y').innerHTML = GL.getY('elem1');
+    }
+  </script>
 </head>
+
 <body>
-	<canvas id="cnv_jeu_gl" width=600 height=400>
-	</canvas><br/>
-	<button id="btn_demarrer">Démarrer</button>
-	<button id="btn_step">step</button>
-	<table style="margin: 0 auto;">
-		<tr>
-			<td>dx:</td>
-			<td><input id="inp_dx" size=3 value="1" /></td>
-			<td>[pixels / itération]</td>
-		</tr>
-		<tr>
-			<td>dy:</td>
-			<td><input id="inp_dy" size=3 value="-1" /></td>
-			<td>[pixels / itération]</td>
-		</tr>
-		<tr>
-			<td>x:</td>
-			<td><span id="sp_x">300</span></td>
-			<td>[pixels]</td>
-		</tr>
-		<tr>
-			<td>y:</td>
-			<td><span id="sp_y">200</span></td>
-			<td>[pixels]</td>
-		</tr>
-	</table>
-	<div style="display:none">
-		<img id="rect1" src="image/balle.svg" />
-	</div>
+  <canvas id="cnv_jeu_gl" width=600 height=400>
+  </canvas><br />
+  <button id="btn_demarrer">Démarrer</button>
+  <button id="btn_step">step</button>
+  <table style="margin: 0 auto;">
+    <tr>
+      <td>dx:</td>
+      <td><input id="inp_dx" size=3 value="1" /></td>
+      <td>[pixels / itération]</td>
+    </tr>
+    <tr>
+      <td>dy:</td>
+      <td><input id="inp_dy" size=3 value="-1" /></td>
+      <td>[pixels / itération]</td>
+    </tr>
+    <tr>
+      <td>x:</td>
+      <td><span id="sp_x">300</span></td>
+      <td>[pixels]</td>
+    </tr>
+    <tr>
+      <td>y:</td>
+      <td><span id="sp_y">200</span></td>
+      <td>[pixels]</td>
+    </tr>
+  </table>
+  <div style="display:none">
+    <img id="rect1" src="image/balle.svg" />
+  </div>
 </body>
+
 </html>
