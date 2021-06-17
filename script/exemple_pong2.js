@@ -76,10 +76,10 @@ function step() {
     GL.arreter();
     GL.ecrireTexte('GAME OVER', 300, 200, 50, 'center');
     if (GL.collisionMurDroite('balle')) {
-      GL.ecrireTexte('Joueur gagne', 300, 300, 50, 'center');
+      GL.ecrireTexte('Ordinateur gagne', 300, 300, 50, 'center');
     }
     if (GL.collisionMurGauche('balle')) {
-      GL.ecrireTexte('Ordinateur gagne', 300, 300, 50, 'center');
+      GL.ecrireTexte('Joueur gagne', 300, 300, 50, 'center');
     }
   }
   else {
