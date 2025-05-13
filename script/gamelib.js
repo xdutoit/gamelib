@@ -31,7 +31,7 @@ window.onload = function () {
     console.error('canvas cnv_jeu introuvable dans la page');
   }
 
-  // listener du bouton demmarer
+  // listener du bouton demarrer
   let bouton = document.getElementById('btn_demarrer');
   if (bouton) {
     if (typeof step == 'function') {

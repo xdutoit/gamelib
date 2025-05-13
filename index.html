@@ -71,7 +71,7 @@
       <p>
         (pour plus d'information sur la balise canvas, voir <a href="#dessiner_canvas">dessiner sur le canvas</a>)
       </p>
-      <p>
+      <p id="inclure_image">
         Il faut ensuite inclure chacune des images, avec à chaque fois un identifiant. On peut le faire dans une div
         invisible (sinon les images apparaissent sur la page) :
       </p>
@@ -89,10 +89,11 @@
       <h1 id="mise_en_place">La mise en place des éléments</h1>
       <h2>Images et éléments</h2>
       <p>
-        Pour inclure un élément, il faut faire deux opérations :
+        Pour inclure un élément, il faut faire trois opérations :
       </p>
       <ul>
-        <li>mettre l'image dans la page web (balise <code>img</code>)</li>
+        <li>inclure le fichier dans le dossier <em>image</em></li>
+        <li>mettre l'image dans la page web (balise <code>img</code>, cf. <a href="#inclure_image">ci-dessus</a>)</li>
         <li>inclure l'élément dans le script (cf. <a href="#inclure">ci-dessous</a>)</li>
       </ul>
       <p>
