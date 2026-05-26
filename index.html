@@ -13,76 +13,55 @@
 </head>
 
 <body>
+
   <nav>
     <a class="a_ref" href="reference.html" target="tab_ref">référence</a>
     <a class="a_ref" href="image/images.html" target="tab_imgs">images</a>
     <div id="nav_auto"></div>
     <a href="#" title="retourner en haut">retour en haut</a>
   </nav>
+
   <div id="main_container">
     <div id="main_title">
       gamelib.js<br />
       une librairie JS pour faire des jeux
     </div>
+
     <section>
       <h1 id="installation">Installer et utiliser la librairie</h1>
-      <h2>Éléments nécessaires</h2>
+      <h2>Téléchargement et installation</h2>
       <p>
-        Pour utiliser la librairie, il faut, au minimum :
+        Téléchargez le fichier <a href="fichiers/gamelib_1_0.zip">gamelib_1_0.zip</a>, placez-le dans le dossier de votre choix et décompressez-le.
       </p>
-      <ul>
-        <li>le fichier de script <a href="script/gamelib.js" target="_blank">gamelib.js</a></li>
-        <li>une page web avec une balise <code>canvas</code> et un lien vers la librairie</li>
-        <li>un script pour le jeu</li>
-      </ul>
       <p>
-        Une arborescence possible est la suivante (avec une image de balle) :
+        Si la librairie est correctement installée, vous devriez voir le message "librairie correctement installée !" lorsque vous ouvez le fichier <span class="folderFile">page.html</span> dans votre navigateur.
+      </p>
+      <h2>Éléments de la librairie</h2>
+      <p>
+        L'installation initiale de la librairie crée les fichiers et l'arborescence suivante:
       </p>
       <figure>
         <img src="image_web/dossiers.svg" alt="arborescence pour la librairie">
         <caption>Exemple d'arborescence</caption>
       </figure>
       <p>
-        Vous pouvez télécharger directement <a href="fichiers/fichiers_depart.zip">un dossier zippé avec tous les
-          éléments nécessaires</a>. Si tout est installé correctement, vous devriez voir le message "ça marche !" au
-        chargement de la page.
+        La librairie contient les éléments suivants:
       </p>
-      <h2>Page web</h2>
+      <ul>
+        <li>un fichier <span class="folderFile">page.html</span>: c'est la page web de base qu'il faut ouvrir dans le navigateur pour voir le résultat. Cette page contient un élément <code>canvas</code> et les différents liens vers la librairie et le script personnalisé.</li>
+        <li>un dossier <span class="folderFile">script</span>: ce dossier contient les deux fichiers de scripts suivants:
+          <ul>
+            <li><span class="folderFile">gamelib.js</span>: c'est la librairie, <strong>il ne faut pas modifier ce fichier !</strong></li>
+            <li><span class="folderFile">monScript.js</span>: c'est le script personnalisé dans lequel on peut écrire les fonctions qui vont utiliser la librairie (vous pouvez renommer ce fichier si besoin, mais il faudra changer le lien dans la page web <span class="folderFile">page.html</span>)</li>
+          </ul>
+        </li>
+        <li>un dossier <span class="folderFile">image</span> avec les différentes images (dans l'installation de base, il ne contient qu'une image de balle)</li>
+      </ul>
+      </p>
+      <h2>L'élément HTML <code>canvas</code></h2>
       <p>
-        La page web doit contenir au moins un lien vers la librairie et une balise canvas, et éventuellement une ou
-        plusieurs images.
+        Cette librairie permet d'animer des images dans un <code>canvas</code>. Un <code>canvas</code> est une sorte de rectangle dans lequel on insérer des images et les animer à l'aide de Javascript. Tout le jeu que vous allez développer se passera dans ce <code>canvas</code> (pour plus d'information sur la balise canvas, voir <a href="#dessiner_canvas">dessiner sur le canvas</a>).
       </p>
-      <p>
-        Le fichier de la librairie s'appelle <code>gamelib.js</code>. On peut donc l'inclure ainsi dans la page web :
-      </p>
-      <pre>
-        <code class="language-html">
-&lt;script src="script/gamelib.js"&gt;&lt;/script&gt;
-        </code>
-      </pre>
-      <p>
-        La balise <code>canvas</code> représente la zone de dessin. Elle doit avoir comme id <code>cnv_jeu_gl</code> :
-      </p>
-      <pre>
-        <code class="language-html">
-&lt;canvas id="cnv_jeu_gl" width=600 height=400&gt;&lt;/canvas&gt;
-        </code>
-      </pre>
-      <p>
-        (pour plus d'information sur la balise canvas, voir <a href="#dessiner_canvas">dessiner sur le canvas</a>)
-      </p>
-      <p id="inclure_image">
-        Il faut ensuite inclure chacune des images, avec à chaque fois un identifiant. On peut le faire dans une div
-        invisible (sinon les images apparaissent sur la page) :
-      </p>
-      <pre>
-        <code class="language-html">
-&lt;div style="display:none;"&gt;
-  &lt;img id="img1" src="image/image1.svg" /&gt;
-&lt;/div&gt;
-        </code>
-      </pre>
-      <p>Les images doivent être dans un format "web-compatible" (svg, png, jpg).</p>
     </section>
 
     <section>
@@ -91,48 +70,68 @@
       <p>
         Pour inclure un élément, il faut faire trois opérations :
       </p>
-      <ul>
-        <li>inclure le fichier dans le dossier <em>image</em></li>
-        <li>mettre l'image dans la page web (balise <code>img</code>, cf. <a href="#inclure_image">ci-dessus</a>)</li>
-        <li>inclure l'élément dans le script (cf. <a href="#inclure">ci-dessous</a>)</li>
-      </ul>
+      <ol>
+        <li>inclure le fichier (svg, jpg ou png) dans le dossier <span class="folderFile">image</span></li>
+        <li>mettre l'image dans la page web (balise <code>img</code>)</li>
+        <li>inclure l'élément dans le script</li>
+      </ol>
       <p>
-        Si plusieurs éléments ont la même image, on peut insérer une seule fois l'image dans la page web, mais il faudra
-        inclure plusieurs éléments dans le script.
+        Si plusieurs éléments ont la même image, on peut utiliser un seul fichier, insérer une seule fois l'image dans la page web, mais il faudra inclure plusieurs éléments dans le script.
       </p>
-      <h2>La fonction init()</h2>
+      <h2>1. inclure le fichier dans le dossier <span class="folderFile">image</span></h2>
       <p>
-        Le script doit comprendre une fonction nommée <code>init()</code>. Cette fonction sera automatiquement appelée
-        par la librairie au chargement de la page. Cette fonction doit contenir toute la mise en place pour le jeu.
+        Il faut commencer par avoir une image dans un format "web-compatible" (svg, png, jpg) de l'élément qu'on veut ajouter et le placer dans le dossier <span class="folderFile">image</span>.
+      </p>
+      <p>
+        Voici un exemple partiel d'arborescence avec un fichier <span class="folderFile">rectangle.svg</span>:
+      </p>
+      <figure>
+        <img src="image_web/dossier_image_rectangle.svg" alt="fichier rectangle.svg dans le dossier image">
+        <caption>un fichier <span class="folderFile">rectangle.svg</span> dans le dossier <span class="folderFile">image</span></caption>
+      </figure>
+      <h2>2. mettre l'image dans la page web</h2>
+      <p>
+        Il faut ensuite insérer un élément <code>img</code> dans la page web. On peut le mettre dans une <code>div</code> invisible, afin que l'image ne soit pas visible directement sur la page en-dehors du <code>canvas</code>. Il faut donner un <code>id</code> à l'image afin de pouvoir l'inclure dans le script.
+      </p>
+      <pre>
+        <code class="language-html">
+&lt;div style="display:none;"&gt;
+  &lt;img id="image1" src="image/rectangle.svg" /&gt;
+&lt;/div&gt;
+        </code>
+      </pre>
+      <h2>3. inclure l'élément dans le script</h2>
+      <p>
+        Dans le fichier de script (nommé <span class="folderFile">monScript.js</span> si vous ne l'avez pas renommé), on peut créer une fonction nommée <code>init()</code>. Cette fonction sera automatiquement appelée par la librairie au chargement de la page. Elle doit contenir toute la mise en place pour le jeu. Elle permet entre autre d'inclure tous les éléments nécessaires.
+      </p>
+      <p>
+        Chaque élément du jeu doit être "inclus" avant de pouvoir être utilisé. On le fait à l'aide de la fonction <code>inclure()</code>. Cette fonction prend deux arguments : le nom de l'élément (on doit nommer chaque élément afin de pouvoir l'identifier par la suite) et l'id de l'image associée.
+      </p>
+      <p>
+        Voici le code pour inclure l'image dont l'id est <code>image1</code> et l'appeler dans le jeu <code>element1</code>:
       </p>
       <pre>
         <code class="language-js">
 function init(){
-  // mise en place du jeu
-  ...
+  GL.inclure('element1','image1');
 }
         </code>
       </pre>
-      <h2 id="inclure">Importation des éléments : la fonction inclure()</h2>
       <p>
-        Chaque élément du jeu doit être "inclus" avant de pouvoir être utilisé. On le fait à l'aide de la fonction
-        <code>inclure()</code>. Cette fonction prend deux arguments : le nom de l'élément (on doit nommer chaque élément
-        afin de pouvoir l'identifier par la suite) et l'id de l'image associée.<br />
-        Pour créer un élément <code>element1</code> qui a comme image <code>image1</code>, on fait :
+        Une fois l'élément <code>element1</code> inclus dans le script, on peut le placer sur la page et le dessiner.
       </p>
-      <pre>
-        <code class="language-js">
-GL.inclure('element1','image1');
-        </code>
-      </pre>
+    </section>
+
+    <section>
+      <h1>Dessiner un élément à l'écran</h1>
       <h2>Placement des éléments</h2>
       <p>
-        Pour placer un élément nommé <code>element1</code> à la position <code>(100,200)</code> et avec un angle de
+        Pour placer un élément nommé <code>element1</code> à la position <code>(100,300)</code> et avec un angle de
         <code>30°</code>, on fait :
       </p>
       <pre>
         <code class="language-js">
-GL.setXY('element1',100,200);
+GL.setXY('element1',100,300);
 GL.setAngle('element1',30);
         </code>
       </pre>
@@ -169,35 +168,96 @@ GL.dessiner('element1');
     </section>
 
     <section>
-      <h1 id="ex_1">Exercice 1 : un exemple minimal</h1>
-      <ol>
-        <li><a href="#installation">installez la librairie</a> et téléchargez une <a href="image/rectangle.svg"
-            target="_blank">image de rectangle</a> (ou créez votre propre image)</li>
-        <li>placez l'image dans un dossier <code>image</code></li>
-        <li>créez une page web avec un canvas et une image (cette page existe déjà dans le dossier zippé de départ)</li>
-        <li>créez un fichier de script (ce script existe déjà dans le dossier zippé de départ)</li>
-        <li>dans votre script, créez une fonction <code>init</code> qui place le rectangle aux coordonnées (100,200)
-          avec un angle de 30° et dessinez-le</li>
-      </ol>
+      <h1 id="ex_1">Exercice 1 : dessiner un rectangle</h1>
       <p>
-        Vous devriez obtenir le résultat suivant :
+        Dans cette exercice, vous allez inclure une image de rectangle et le dessiner dans le <code>canvas</code>.
+      </p>
+
+      <h2>1. télécharger l'image</h2>
+      <p>
+        Vous devez commencer par obtenir l'image de l'élément que vous voulez inclure. Dans cet exercice, nous allons prendre une image de rectangle:
+      </p>
+      <p>
+        <img src="image/rectangle.svg" alt="une image de rectangle">
+      </p>
+      <p>
+        Faites un clic droit sur l'image et choisissez "Enregistrer sous...". Placez ensuite le fichier dans le dossier <span class="folderFile">image</span> de la librairie (à côté de fichier <span class="folderFile">balle.svg</span> ). Vous deviez avoir l'arborescence suivante:
+      </p>
+      <figure>
+        <img src="image_web/dossiers_avec_rectangle.svg" alt="arborescence avec le fichier rectangle.svg dasn le dossier image">
+        <caption>arborescence une fois le fichier <span class="folderFile">rectangle.svg</span> téléchargé</caption>
+      </figure>
+
+      <h2>2. mettre l'image dans la page web</h2>
+      <p>
+        Ajoutez une balise <code>img</code> dans la page avec comme source le chemin vers le fichier <span class="folderFile">rectangle.svg</span> et comme id <code>monRectangle</code>:
+      </p>
+      <pre>
+        <code class="language-html">
+&lt;div style="display:none;"&gt;
+&lt;!-- mettez ici vos images --&gt;
+  &lt;img id="maBalle" src="image/balle.svg"&gt;
+  &lt;img id="monRectangle" src="image/rectangle.svg" /&gt;
+&lt;/div&gt;
+        </code>
+      </pre>
+      <h2>3. inclure le rectangle dans le script</h2>
+      <p>
+        Créez une fonction nommée <code>init()</code> dans le fichier de script (nommé <span class="folderFile">monScript.js</span> si vous ne l'avez pas renommé). Dans cette fonction, appelez la fonction <code>inclure('element1','monRectangle')</code> afin d'inclure l'élément dont l'image a comme id <code>monRectangle</code> dans le script et de l'appeler <code>element1</code>:
+      </p>
+      <pre>
+        <code class="language-js">
+function init(){
+  GL.inclure('element1','monRectangle');
+}
+        </code>
+      </pre>
+
+      <h2>4. placer le rectangle et le dessiner à l'écran</h2>
+      <p>
+        Vous devez placer le rectangle (nommé désormais <code>element1</code>) aux coordonnées <code>(100,300)</code> et le faire tourner de <code>30°</code>:
+      </p>
+      <pre>
+        <code class="language-js">
+function init(){
+  GL.inclure('element1','monRectangle');
+
+  GL.setXY('element1', 100, 300);
+  GL.setAngle('element1',30);
+}
+        </code>
+      </pre>
+      <p>
+        Il faut enfin appeler la fonction <code>dessiner()</code> afin de dessiner l'élément à l'écran:
+      </p>
+      <pre>
+        <code class="language-js">
+function init(){
+  GL.inclure('element1','monRectangle');
+
+  GL.setXY('element1', 100, 300);
+  GL.setAngle('element1',30);
+
+  GL.dessiner('element1');
+}
+        </code>
+      </pre>
+      <p>
+        Vous devriez obtenir le résultat suivant si vous ouvrez la page <span class="folderFile">page.html</span>:
       </p>
       <figure>
         <img src="image_web/exemple1_rendu.svg" alt="un canvas avec un rectangle à (100,200) et un angle de 30°">
-        <caption>résultat de l'exemple 1 : un rectangle à (100,200) avec un angle de 30°</caption>
+        <caption>résultat de l'exemple 1 : un rectangle à (100,300) avec un angle de 30°</caption>
       </figure>
       <p>
-        Vous pouvez aller sur le <a href="exercice_init.html" target="_blank">corrigé de cet exercice</a>. Pour voir le
-        script, affichez le code source de la page et cliquez sur le lien vers <code>exercice_init.js</code>.
+        Vous pouvez aller voir le <a href="exercice_rectangle.html" target="_blank">corrigé de cet exercice</a>. Pour voir le script, affichez le code source de la page et cliquez sur le lien vers <code>exercice_rectangle.js</code>.
       </p>
     </section>
-
 
     <section>
       <h1 id="dessiner_canvas">Dessiner sur le <code>canvas</code></h1>
       <p>
-        En HTML5, la balise <code>canvas</code> crée une zone de dessin. Par exemple, pour créer un canvas de 600 pixels
-        de large et 400 pixels de haut, on utilise le code suivant :
+        En HTML5, la balise <code>canvas</code> crée une zone de dessin. Par exemple, pour créer un canvas de 600 pixels de large et 400 pixels de haut, on utilise le code suivant :
       </p>
       <pre>
         <code class="language-html">
@@ -208,9 +268,7 @@ GL.dessiner('element1');
         Une fois le canvas créé, on peut y dessiner un élément avec la fonction <code>dessiner()</code>.
       </p>
       <p>
-        Il est important de remarquer qu'<strong>un élément est indépendant de son dessin</strong>. En effet, bouger un
-        élément (à l'aide par exemple de la fonction <code>setXY</code>) ne va rien changer au dessin tant qu'on aura
-        pas redessiné l'élément.
+        Il est important de remarquer qu'<strong>un élément est indépendant de son dessin</strong>. En effet, bouger un élément (à l'aide par exemple de la fonction <code>setXY</code>) ne va rien changer au dessin tant qu'on aura pas redessiné l'élément.
       </p>
       <p>
         De plus, <strong>dessiner un élément n'efface pas l'élément précédent</strong>. Il faut donc à chaque fois
@@ -225,19 +283,27 @@ GL.dessiner('element1');
         <li>redessiner l'élément (fonction <code>dessiner()</code> ou <code>dessinerTout()</code> )</li>
       </ol>
       <p>
-        Allez sur <a href="sandbox_rect.html" target="sb_rect">cet exemple</a> et, directement sur la console, appelez
-        la fonction <code>setX</code> et observez le résultat. Rien ne "bouge" tant que vous n'avez pas redessiné le
-        canvas. N'oubliez pas de commencer par effacer le canvas avant de redessiner l'élément.
+        Voici par exemple le code pour déplacer l'élément <code>element1</code> aux coordonnées <code>200,300</code> et voir le résultat:
+      </p>
+      <pre>
+        <code class="language-js">
+GL.setXY('element1', 200, 300);
+GL.effacerTout();
+GL.dessiner('element1');
+        </code>
+      </pre>
+      <p>
+        Allez sur <a href="sandbox_rect.html" target="sb_rect">cet exemple</a> et, directement sur la console, appelez la fonction <code>setX</code> et observez le résultat. Rien ne "bouge" tant que vous n'avez pas redessiné le canvas. N'oubliez pas de commencer par effacer le canvas avant de redessiner l'élément.
       </p>
     </section>
+
     <section>
       <h1 id="touches">Réagir aux touches du clavier</h1>
       <p>
-        Pour qu'un jeu soit interactif, il faut réagir lorsqu'on appuie sur certaines touches du clavier (par exemple,
-        dans la plupart des jeux, les touches wasd servent à diriger le personnage).
+        Pour qu'un jeu soit interactif, il faut réagir lorsqu'on appuie sur certaines touches du clavier (par exemple, dans la plupart des jeux, les touches <code>w</code>, <code>a</code>, <code>s</code> et <code>d</code> servent à diriger le personnage).
       </p>
       <p>
-        Pour réagir à un touche, il faut effectuer deux actions :
+        Pour réagir à une touche, il faut effectuer deux actions :
       </p>
       <ul>
         <li>créer une fonction qui sera appelée lorsqu'une touche est appuyée (ou relâchée)</li>
@@ -245,23 +311,20 @@ GL.dessiner('element1');
       </ul>
       <p>
         Il est important de noter qu'on définit <strong>une seule fonction</strong> qui sera appelée lorsque
-        <strong>n'importe quelle touche</strong> du clavier est appuyée (ou relâchée). Le nom de la touche sera passé en
-        paramètre à cette fonction.
+        <strong>n'importe quelle touche</strong> du clavier est appuyée (ou relâchée). Le nom de la touche sera passé en paramètre à cette fonction.
       </p>
       <p>
         Pour "attacher" une fonction, vous devez appeler une des deux fonctions suivantes :
       </p>
       <ul>
-        <li><code>definirFonctionToucheEnfoncee</code></li>
-        <li><code>definirFonctionToucheRelachee</code></li>
+        <li><code>definirFonctionToucheEnfoncee()</code></li>
+        <li><code>definirFonctionToucheRelachee()</code></li>
       </ul>
       <p>
-        La première fonction permet d'appeler votre fonction lorsqu'une touche est enfoncée, la deuxième lorsqu'une
-        touche est relâchée.
+        La première fonction permet d'appeler votre fonction lorsqu'une touche est enfoncée, la deuxième lorsqu'une touche est relâchée.
       </p>
       <p>
-        Par exemple, pour faire en sorte qu'une fonction nommée <code>toucheAppuyee</code> soit appelée lorsqu'on appuie
-        sur une touche, il faut exécuter l'instruction suivante lors de l'initialisation :
+        Par exemple, pour faire en sorte qu'une fonction nommée <code>toucheAppuyee</code> soit appelée lorsqu'on appuie sur une touche, il faut exécuter l'instruction suivante lors de l'initialisation :
       </p>
       <pre>
         <code class="language-js">
@@ -281,32 +344,27 @@ function toucheAppuyee(nomTouche){
         </code>
       </pre>
       <p>
-        Le paramètre passé à la fonction appelée en cas de touche enfoncée est le nom de la touche. Ces noms peuvent
-        être :
+        Le paramètre passé à la fonction appelée en cas de touche enfoncée est le nom de la touche. Ces noms peuvent être :
       </p>
       <ul>
         <li>les lettres : <code>a</code>, <code>b</code>, <code>c</code>, etc.</li>
         <li>les chiffres : <code>1</code>, <code>2</code>, <code>3</code>, etc.</li>
         <li>les flèches : <code>ArrowUp</code>, <code>ArrowDown</code>, <code>ArrowLeft</code>, <code>ArrowRight</code>
         </li>
-        <li>les autres touches spéciales : <code>Tab</code>, <code>Control</code>, <code>Alt</code>,
-          <code>AltGraph</code>, <code>Shift</code>, <code>PageUp</code>, <code>PageDown</code>, <code>Home</code>,
-          <code>End</code></li>
+        <li>les autres touches spéciales : <code>Tab</code>, <code>Control</code>, <code>Alt</code>, <code>AltGraph</code>, <code>Shift</code>, <code>PageUp</code>, <code>PageDown</code>, <code>Home</code>, <code>End</code></li>
       </ul>
-
     </section>
 
     <section>
       <h1 id="exo_touches">Exercice 2 : faire bouger le rectangle</h1>
       <p>
-        Si ce n'est pas encore fait, téléchargez <a href="image/rectangle.svg" target="_blank">l'image de rectangle</a>
-        et incluez-la dans votre jeu.
+        Si ce n'est pas encore fait, téléchargez <a href="image/rectangle.svg" target="_blank">l'image de rectangle</a> et incluez-la dans votre jeu.
       </p>
       <p>
-        Placez cette image au milieu du canevas, c'est-à-dire aux coordonnées (300;200).
+        Placez cette image au milieu du canevas, c'est-à-dire aux coordonnées <code>(300;200)</code>.
       </p>
       <p>
-        Créez une fonction <code>toucheAppuyee</code> qui reçoit un paramètre, appelé <code>nomTouche</code> :
+        Créez une fonction <code>toucheAppuyee()</code> qui reçoit un paramètre, appelé <code>nomTouche</code> :
       </p>
       <pre>
         <code class="language-js">
@@ -316,18 +374,27 @@ function toucheAppuyee(nomTouche){
         </code>
       </pre>
       <p>
-        Faites en sorte que votre fonction <code>toucheAppuyee</code> soit appelée dès qu'on appuye sur une touche, en
-        ajoutant ce code dans la fonction <code>init</code> :
+        Faites en sorte que votre fonction <code>toucheAppuyee()</code> soit appelée dès qu'on appuye sur une touche, en ajoutant ce code dans la fonction <code>init()</code> :
       </p>
       <pre>
         <code class="language-js">
-GL.definirFonctionToucheEnfoncee(toucheAppuyee);
+function init() {
+  // inclure ici les images et mettre en place les éléments
+  // (complétez ici les instructions nécessaires)
+
+  // placer à (300,200)
+  // (complétez ici les instructions nécessaires)
+
+  // dessiner
+  // (complétez ici les instructions nécessaires)
+
+  // déterminer la fonction à appeler lorsqu'une touche est enfoncée
+  GL.definirFonctionToucheEnfoncee(toucheAppuyee);
+}
         </code>
       </pre>
       <p>
-        Complétez maintenant le corps de la fonction <code>toucheAppuyee</code> pour que les touches fléchées fassent
-        bouger le rectangle. Par exemple, pour que la touche "flèche gauche" fasse bouger le rectangle de 10 pixels vers
-        la gauche, écrivez :
+        Complétez maintenant le corps de la fonction <code>toucheAppuyee</code> pour que les touches fléchées fassent bouger le rectangle. Par exemple, pour que la touche "flèche gauche" fasse bouger le rectangle de 10 pixels vers la gauche, écrivez :
       </p>
       <pre>
         <code class="language-js">
@@ -342,14 +409,23 @@ function toucheAppuyee(nomTouche){
         Faites en sorte que les 4 touches fléchées fassent bouger le rectangle dans la direction correspondante.
       </p>
       <p>
-        N'oubliez pas d'effacer et de redessiner tout le canevas après chaque déplacement du rectangle. La fin de votre
-        fonction <code>toucheAppuyee</code> doit donc être :
+        N'oubliez pas d'effacer et de redessiner tout le canevas après chaque déplacement du rectangle. La fin de votre fonction <code>toucheAppuyee()</code> doit donc être :
       </p>
       <pre>
         <code class="language-js">
 function toucheAppuyee(nomTouche){
-
-  // plusieurs if pour les différentes flèches
+  if(nomTouche=='ArrowLeft'){
+    GL.addX('rectangle',-10);
+  }
+  if(nomTouche=='ArrowRight'){
+    // complétez ici pour un mouvement vers la droite
+  }
+  if(nomTouche=='ArrowUp'){
+    // complétez ici pour un mouvement vers le haut
+  }
+  if(nomTouche=='ArrowDown'){
+    // complétez ici pour un mouvement vers le bas
+  }
 
   GL.effacerTout();
   GL.dessinerTout();
@@ -357,55 +433,16 @@ function toucheAppuyee(nomTouche){
         </code>
       </pre>
       <p>
-        Vous pouvez aller voir le <a href="exercice_touche.html" target="_blank">corrigé de cet exercice</a>. Pour voir
-        le script, affichez le code source de la page et cliquez sur le lien vers <code>exercice_init.js</code>.
+        Vous pouvez aller voir le <a href="exercice_touche.html" target="_blank">corrigé de cet exercice</a>. Pour voir le script, affichez le code source de la page et cliquez sur le lien vers <code>exercice_init.js</code>.
       </p>
 
     </section>
-
-    <section>
-      <h1 id="iterations">Faire avancer le jeu : les itérations</h1>
-      <p>
-        Dans un jeu dynamique, certains éléments sont autonomes. Il faut donc régulièrement les faire bouger et
-        rafraîchir l'affichage. Il doit donc y avoir une fonction qui est appelée à chaque "itération" du jeu. Cette
-        fonction a (au moins) les tâches suivantes :
-      </p>
-      <ul>
-        <li>déplacer les objets autonomes</li>
-        <li>vérifier les éventuelles collisions</li>
-        <li>vérifier les conditions de fin de partie</li>
-      </ul>
-      <p>
-        Dans l'exemple du <a href="#exemples_jeux">pong</a> :
-      </p>
-      <ul>
-        <li>l'élément autonome (qui se déplace tout seul) est la balle</li>
-        <li>les éléments contrôlés par les utilisateurs (qui réagissent aux touches du clavier) sont les barres</li>
-      </ul>
-      <p>
-        A chaque itération, il faut :
-      </p>
-      <ul>
-        <li>déplacer la balle</li>
-        <li>vérifier les collisions sur les murs haut et bas (rebonds)</li>
-        <li>vérifier les collisions sur les murs gauche et droite (conditions de fin de partie)</li>
-      </ul>
-      <p>
-        Pour déplacer un objet, le plus simple est de lui attribuer une vitesse (par exemple, en coordonnées
-        cartésiennes, un <code>dx</code> et un <code>dy</code> qui représentent le déplacement effectué à chaque
-        itération).
-      </p>
-      <p>
-        Sur <a href="sandbox_step.html" target="sb_step">cet exemple</a>, vous pouvez soit cliquer sur "step" et faire
-        UNE itération, soir cliquer sur "Démarrer" pour effectuer automatiquement les itérations.
-      </p>
-    </section>
-
+    
     <section>
       <h1 id="trigo">Exercice 3 : déplacement relatif à l'orientation</h1>
       <p>
         Pour déplacer un objet suivant les axes, ont peut simplement ajouter (ou soustraire) un certain nombre de pixels
-        à ses coordonnées en X et en Y (à l'aide de <code>addX</code> et <code>addY</code>).<br>
+        à ses coordonnées en X et en Y (à l'aide de <code>addX()</code> et <code>addY()</code>).<br>
         Par exemple, pour bouger l'élément 'elem1' de 20 pixels vers la droite, on peut faire :
       </p>
       <pre>
@@ -448,10 +485,90 @@ let c = Math.cos(20 * Math.PI/180);
         <li>flèche bas : le rectangle recule de 10 pixels (dans la direction vers laquelle il pointe)</li>
       </ul>
       <p>
+        Vous pouvez partir de la fonction suivante et compléter le code:
+      </p>
+      <pre>
+        <code>
+          function toucheAppuyee(id_touche) {
+  // 'id_touche' vaut le nom de la touche
+
+  // flèche droite: on tourne de 10 degrés dans le sens horaire
+  if (id_touche == 'ArrowRight') {
+    // complétez ici pour augmenter l'angle de 10°
+  }
+  // flèche gauche: on tourne de 10 degrés dans le sens anti-horaire
+  if (id_touche == 'ArrowLeft') {
+    // complétez ici pour diminuer l'angle de 10°
+  }
+
+  // flèche haut: on avance de 10px dans a direction dans laquelle on se trouve
+  if (id_touche == 'ArrowUp') {
+    // complétez ici pour:
+    // - récupérer l'angle
+    // - augmenter x de 10*cos(angle)
+    // - augmenter y de 10*sin(angle)
+  }
+  // flèche bas: on recule de 10px dans a direction dans laquelle on se trouve
+  if (id_touche == 'ArrowDown') {
+    // complétez ici pour:
+    // - récupérer l'angle
+    // - diminuer x de 10*cos(angle)
+    // - diminuer y de 10*sin(angle)
+  }
+
+  // dans tous les cas, on efface le canveas et on redessine l'élément à sa nouvelle position
+  GL.effacerTout();
+  GL.dessinerTout();
+}
+        </code>
+      </pre>
+      <p>
         Vous pouvez aller sur le <a href="exercice_trigo.html" target="_blank">corrigé de cet exercice</a>. Pour voir le
         script, affichez le code source de la page et cliquez sur le lien vers <code>exercice_trigo.js</code>.
       </p>
     </section>
+
+    
+
+    <section>
+      <h1 id="iterations">Faire avancer le jeu : les itérations</h1>
+      <p>
+        Dans un jeu dynamique, certains éléments sont autonomes. Il faut donc régulièrement les faire bouger et
+        rafraîchir l'affichage. Il doit donc y avoir une fonction qui est appelée à chaque "itération" du jeu. Cette
+        fonction a (au moins) les tâches suivantes :
+      </p>
+      <ul>
+        <li>déplacer les objets autonomes</li>
+        <li>vérifier les éventuelles collisions</li>
+        <li>vérifier les conditions de fin de partie</li>
+      </ul>
+      <p>
+        Dans l'exemple du <a href="#exemples_jeux">pong</a> :
+      </p>
+      <ul>
+        <li>l'élément autonome (qui se déplace tout seul) est la balle</li>
+        <li>les éléments contrôlés par les utilisateurs (qui réagissent aux touches du clavier) sont les barres</li>
+      </ul>
+      <p>
+        A chaque itération, il faut :
+      </p>
+      <ul>
+        <li>déplacer la balle</li>
+        <li>vérifier les collisions sur les murs haut et bas (rebonds)</li>
+        <li>vérifier les collisions sur les murs gauche et droite (conditions de fin de partie)</li>
+      </ul>
+      <p>
+        Pour déplacer un objet, le plus simple est de lui attribuer une vitesse (par exemple, en coordonnées
+        cartésiennes, un <code>dx</code> et un <code>dy</code> qui représentent le déplacement effectué à chaque
+        itération).
+      </p>
+      <p>
+        Sur <a href="sandbox_step.html" target="sb_step">cet exemple</a>, vous pouvez soit cliquer sur "step" et faire
+        UNE itération, soir cliquer sur "Démarrer" pour effectuer automatiquement les itérations.
+      </p>
+    </section>
+
+    
 
     <section>
       <h1 id="var_etat">Les variables d'état</h1>

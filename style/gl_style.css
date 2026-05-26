@@ -73,6 +73,10 @@ code{
 	border-radius: 5px;
 	padding: 2px 4px;
 }
+.folderFile{
+	font-family: 'Courier New', Courier, monospace;
+	color: #033;
+}
 a{
 	color: black;
 	font-weight: bold;

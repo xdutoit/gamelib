@@ -2,8 +2,9 @@
 librairie JS pour création "facile" de jeu HTML
 
 historique:
-0.1 - 05.05.2021 1ère version fonctionnelle
+0.1 - 05.05.2021 1ère version fonctionnelle minimale
 0.2 - 10.06.2021 listener pour souris (definirFonctionSourisBougee & definirFonctionSourisClic)
+1.0 - 01.04.2026 1ère version à destination des projets d'étudiants
 
 TODO:
 - mise à l'échelle
@@ -13,7 +14,7 @@ x. dutoit
 
 // initialisation
 window.onload = function () {
-  GL.messageDebug('initialisation gamelib', 0);
+  GL.messageDebug('initialisation gamelib v1.0', 0);
 
   // récupération du canvas
   GL.cnv = document.getElementById('cnv_jeu_gl');
@@ -31,7 +32,7 @@ window.onload = function () {
     console.error('canvas cnv_jeu introuvable dans la page');
   }
 
-  // listener du bouton demarrer
+  // listener du bouton demmarer
   let bouton = document.getElementById('btn_demarrer');
   if (bouton) {
     if (typeof step == 'function') {
